@@ -1,0 +1,1319 @@
+Content-Type: text/html; charset=UTF-8
+
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+ <head>
+  <!-- Dada Mail 4.3.2 Stable 01/16/10 -->
+  <title>LyleHadlockMusic</title>
+  <style type="text/css" media="all">
+    
+   
+/* ----- GENERAL ----- */
+
+body { 
+	background-color:#fff;
+	/*font-family:Georgia,Times,'Times New Roman',serif;*/
+	font-family:helvetic,arial,san-serif;
+
+	line-height:1.50em;
+	font-size:.825em;
+	background: #ededed; 
+}
+
+/* for list/archive pages only: */
+body#Dada {
+	margin:50px 0;
+	padding:0;
+	text-align:center;                /* page centering hack for IE */
+	
+		
+	
+}
+
+/* for admin pages only: */
+body#DadaAdmin {
+	margin:0;
+	padding:0;
+
+
+}
+
+
+
+
+/* ----- IDS: General Page Layout ----- */
+
+#PageWrapper {
+}
+
+#Header {
+	width:550px;
+	height:35px;
+	margin:0 auto;                    /* page centering for all but IE */
+	padding:20px;
+	border:1px solid #000;
+	/*background-color:#c00;*/
+	background-color:#00adef;
+	background-image: url('http://www.lylehadlockmusic.com/dadamail/mail.cgi/img/dada_mail_logo.png/');
+	background-repeat: no-repeat;
+	
+	text-align:left;                  /* overrides page centering hack for IE (in the body) */
+	font-family: 'Avant Garde', 'Century Gothic', AvantGarde, Helvetica,Verdana,Arial,sans-serif;
+	font-size: 1.65em;
+	font-style:italic;
+	font-weight:bold;
+	text-transform:uppercase;
+	color:#000;
+}
+
+/* box model hack for IE: \*/
+* html #Header {
+	width:592px;
+}
+/* ends the box model hack. see: http://tinyurl.com/9yld6 */
+
+/* override for admin pages only: */
+body#DadaAdmin #Header {
+	width:auto;
+}
+
+/* override for admin pages only: */
+/* box model hack for IE: \*/
+* html body#DadaAdmin #Header {
+	width:100%;
+}
+/* ends the box model hack. see: http://tinyurl.com/9yld6 */
+
+#Logo {
+	float:left;
+	text-align:left;
+}
+
+#Title {
+	float:right;
+	text-align:right;
+	padding-top:15px; 
+}
+
+/* alas, IE doesn't understand the next three CSS2 rules, 
+   which add the dots before and after the header copy: */
+#Logo:before {
+	/*content: ".: "; */
+}
+
+#Title:before {
+	/* content: ":: "; */
+}
+
+#Title:after {
+	/* content: " ::"; */
+}
+
+#Content {
+	width:550px;
+	margin:0 auto;                    /* page centering for all but IE */
+	padding:20px;
+	border:1px solid #000;
+	border-top:0;
+	background-color:#fff;
+	text-align:left;                  /* overrides page centering hack for IE (in the body) */
+}
+
+/* box model hack for IE: \*/
+* html #Content {
+	width:592px;
+}
+/* ends the box model hack. see: http://tinyurl.com/9yld6 */
+
+#AdminPageWrapper {
+	
+	background: #fff; 
+	
+	
+}
+
+#AdminContentWrapper {
+	margin:0 0 50px 200px;
+	padding:10px;
+}
+
+#AdminContent {
+	width:100%;
+	padding-top:8px;
+	
+}
+
+#MenuWrapper {
+	
+}
+
+#Menu {
+	position:absolute;
+	top:110px;
+	left:20px;
+	width:160px;
+	padding:1px 10px 0 10px;
+	border:1px solid #000;
+	background-color:#fff;
+	text-align:left;
+	line-height:150%;
+}
+
+/* box model hack for IE: \*/
+* html #Menu {
+	width:182px;
+} 
+/* ends the box model hack. see: http://tinyurl.com/9yld6 */
+
+/* ----- IDS: Navigation ----- */
+
+#Menu li {
+	line-height:125%;
+}
+
+#Menu p, 
+#Menu ul
+{
+	margin-left: 0px;
+	padding-left: 0px;
+	list-style: none;
+	font-family: 'Avant Garde', 'Century Gothic', AvantGarde, Helvetica,Verdana,Arial,sans-serif;
+	/*font-size: 12px;*/
+	font-size: .95em; 
+	font-weight: bold;
+}
+
+#Menu ul ul {
+	padding-left:12px;
+	font-weight:normal;
+    list-style-type: square;
+    color: #ccc;
+}
+
+#list_type_switcher div { 
+	
+	font-family: 'Avant Garde', 'Century Gothic', AvantGarde, Helvetica,Verdana,Arial,sans-serif;	
+	float:left;
+	margin-right:2px;
+	width:150px;
+	border:1px solid #000;
+	background-color:#ededed;
+	text-align:center;
+}
+
+#list_type_switcher div a, 
+#list_type_switcher div span {
+	padding:8px 0;
+	                                  /* these next two make the entire "button" clickable: */
+	display:block; /* Moz, etc. */
+	width:150px;   /* IE */
+}
+
+#list_type_switcher div span {
+	background-color:#fff;
+	font-weight:bold;
+}
+
+#list_type_switcher div a:hover {
+	background-color: #e6e6e6;	
+}
+
+/* ----- IDS: Widgets/Other ----- */
+
+#breadcrumbs {
+}
+
+#help_link {
+	float:right;
+	margin-top:.8em;
+	font-weight:bold;
+	clear:both;
+}
+
+#root_login_message {
+	/* float:right; */
+	margin-right:0.5em;
+	color:#fff;
+}
+
+/* ----- CLASSES ----- */
+
+.disabled {
+	background-color:#ccc;
+	border:1px solid #fff;
+}
+
+
+
+
+.error {
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	/*font-size:11px;*/
+	font-size: .9em; 
+	
+	font-style:italic;
+	color:#600;
+}
+
+.alert { 
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	/*font-size:11px;*/
+	font-size: .9em; 
+	
+	/*font-style:italic;*/
+	color:#09c;
+}
+
+
+
+.hidden {
+	display:none;
+}
+
+
+a.menu_disabled {
+    color: #999;
+    font-style:italic;
+}
+
+a.menu_disabled:link {
+    color: #999;
+    font-style:italic;
+}
+
+a.menu_disabled:visited {
+    color: #999;
+    font-style:italic;
+}
+
+a.menu_disabled:hover {
+    color: #999;
+    font-style:italic;
+}
+
+a.menu_disabled:active {
+	color: #999;
+    font-style:italic;
+}
+
+
+
+
+
+
+
+.highlighted { 
+    font-style: normal;
+    background-color:#6F3;
+
+}
+
+p.link_to_screen {
+	text-align:right;
+	font-weight:bold;
+}
+
+.positive {
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	/*font-size:11px;*/
+	font-size: .9em; 
+
+	
+	color:#063;
+}
+
+.positive_greeting { 
+	padding:2px; 
+	border: 1px solid #363;
+	background-color: #CFC;
+}
+
+.simplebox {
+	padding:7px;
+	border:1px solid #000;
+	background-color:#fff;
+}
+
+.login_message { 
+    float: right; 
+    padding:5px;
+    /* width:150px; */
+    background-color:#ffc;
+    border:1px dotted #333;
+}
+
+.login_message p { 
+    line-height: 100%;
+}
+
+.login_message ul { 
+
+    list-style-type: square;
+    color: #ccc;
+    
+}
+
+
+/* all but IE/Win & NN4: */
+.simplebox>p {
+	margin:0;
+}
+
+/* ----- HEADINGS ----- */
+
+
+h1, h2, h3 { 
+	font-family:'Avant Garde', 'Century Gothic', AvantGarde, Helvetica,Verdana,Arial,sans-serif;
+	font-weight:bold;
+}
+
+h1 {
+    
+	/*font-size:18px;*/
+
+	
+	font-size: 1.4em;
+}
+
+h2 {
+	/*font-size:16px;*/
+	font-size: 1.2em;
+}
+
+h3 {
+	/*font-size:14px;*/
+	font-size: 1em
+}
+
+/* ----- PARAGRAPHS ----- */
+
+p {
+	margin-top:    0.75em;
+    margin-bottom: 0.75em;
+}
+
+p.small {
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	/*font-size:11px;*/
+	font-size: .9em; 
+}
+
+/* ----- CODE ----- */
+
+code, pre {
+	margin:3px;
+	padding:3px;
+	border:1px dotted #000;
+	background-color:#ccf;
+	font:.8em/1.6em Monaco,Mono,'Courier New',Courier,monospace;
+}
+
+/* ----- LINKS ----- */
+
+a {
+	text-decoration:none;
+}
+
+a:link {
+	color:#339;
+}
+
+a:visited {
+	color:#03c;
+}
+
+a:hover {
+	color:#33c;
+}
+
+a:active {
+}
+
+#Logo a:link, 
+#Logo a:visited {
+	color:#000;
+}
+
+#Logo a:hover {
+	color:#000;
+}
+
+#Logo a:active {
+}
+
+/* ----- FORMS ----- */
+
+label {
+	
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	
+	/*font-size:12px;*/
+	/*font-size: .95em; */
+	font-weight:bold;
+	color:#000;
+	
+}
+
+.label_by_5 { 
+	width: 4em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+
+fieldset { 
+
+
+    padding-top:    4px;
+    padding-bottom: 9px;
+    padding-left:   7px;
+    padding-right:  7px;
+
+    margin-left:    5px;
+    margin-right:  5px;
+    margin-top:    10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    background:#ededed;
+    
+    
+}
+
+fieldset fieldset { 
+	background:#e6e6e6;
+}
+
+
+legend {
+	
+	
+	font-family: 'Avant Garde', 'Century Gothic', AvantGarde, Helvetica,Verdana,Arial,sans-serif;
+	font-weight:bold;
+    /*font-size:16px;*/
+    font-size: 1.15em;
+
+}
+
+
+
+
+input {
+	margin:5px;
+	padding:5px;
+	border-width:1px;
+	border-style:solid; 
+	border-color:#666 #999 #ccc #999;
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	font-size: 1em;
+}
+
+/* removes checkbox/radio-button borders in IE 5.0+: */
+/* (commented out for validation, uncomment to apply)
+input {
+    border: expression(this.type=="checkbox"? 'none':
+                       this.type=="radio"?    'none':
+                       '1px solid #000');
+}
+*/
+
+input.full {
+	margin-top:-5px;
+	width:95%;
+	
+}
+input.midi {
+	width:50%;
+	margin-top:-5px;
+	
+}
+
+
+select {
+	margin:3px;
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	font-size: 1em;
+	color:#333;
+}
+
+textarea {
+	padding:10px;
+	width:95%;
+	border-width:1px;
+	border-style:solid;
+	border-color:#666 #999 #ccc #999;
+	font-family:Helvetica,Verdana,Arial,sans-serif;
+	
+	font-size: 1em;
+	
+	color:#333;
+}
+
+/* affects buttons only: */
+input.plain,
+input.processing,
+input.cautionary,
+input.alertive,
+input.help {
+	font-weight:bold;
+	color:#000;
+	border-color:#ccc #999 #666 #999;		
+}
+
+input.plain {
+	background-color:#9cf;
+	/*color:#000;*/
+	border-color:#ccc #999 #666 #999;		
+	color:#333;
+	
+}
+
+input.processing {
+	/*background-color:#9c9;*/
+	background-color:#9f9; 
+	color:#333;
+	
+}
+
+input.cautionary {
+	/* background-color:#ffc; */
+	background-color:#ff9;
+	color:#333;
+	
+}
+
+input.alertive {
+	/* background-color:#f66; */
+	background-color:#f33;
+	color:#fcc;
+	
+}
+
+input.help {
+	/*background-color:#9c9;*/
+	background-color:#fcf; 
+	color:#333;	
+	
+}
+
+input.disabled {
+    color: #999; 
+	background-color:#ccc;
+	border:1px solid black;
+}
+
+/* IE doesn't understand this: */
+input:focus, 
+textarea:focus {}
+
+div.buttonfloat {
+	float:right;
+}
+
+/* ----- TABLES ----- */
+
+table {
+	font-size:100%;                   /* fixes IE inheritance bug, redundant for others */
+}
+
+td {
+	vertical-align:top;
+}
+
+/* all but IE/Win & NN4: */
+td>p {
+	margin:0;
+}
+
+table.tagchart {
+	border-collapse:collapse;
+	border:2px solid #000;
+	background-color:#fff;
+	width:100%;
+}
+
+table.tagchart td {
+	border:1px solid #000;
+	padding:5px;
+}
+
+/* ----- BREAKS ----- */
+
+hr {
+	width:66%;
+	text-align:center;
+	height:1px;
+	border:0;
+	color:#000;                       /* IE */
+	background-color:#000;            /* Moz & Opera */
+	clear:both;
+}
+
+div.floatclear {
+	clear:both;
+	height:1px;
+	overflow:hidden;
+}
+
+/* ----- ARCHIVES ----- */
+
+#archived_message_wrapper {
+}
+
+#archived_message_head {
+}
+
+iframe#archived_message_body_container {
+	height:500px;
+	width:100%;
+	border:1px solid #000;
+	/* text-styling rules will have NO effect in here. see below instead. */
+}
+
+#archived_message_body {
+/* inline-displayed HTML messages keep their inline styles, but can otherwise be styled here.
+   iframe-displayed HTML messages *always* retain their own style. this does nothing for 'em.
+   plain text messages, whether inline or iframed, will be styled here also. */
+}
+
+.quoted_reply { 
+	color:#666;
+	font-style:italic;
+}
+
+#archived_attachments_wrapper {
+}
+
+
+ ul.archive_badges_ul{ 
+ 
+/* font-size:  11px; */
+font-size: .9em; 
+
+
+line-height: 13px; }
+
+li.archive_badges_li {
+display: inline;
+padding-left: 3px;
+padding-right: 7px;
+/* border-right: 1px dotted #066; */
+}
+
+
+
+
+  </style>
+
+ 
+	 
+ 		<link rel="alternate" type="application/rss+xml"  title="RSS"  href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive_rss/LyleHadlockMusic/" />
+ 		<link rel="alternate" type="application/atom+xml" title="Atom" href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive_atom/LyleHadlockMusic/" />
+	 
+ 
+
+ </head>
+ 
+ <body id="Dada">
+  <div id="PageWrapper">
+   <div id="Header"  onclick="location.href='http://www.lylehadlockmusic.com/dadamail/mail.cgi';" style="cursor:pointer;">
+    <span id="Title">
+     LyleHadlockMusic
+    </span>
+    <div class="floatclear"></div>
+   </div><!-- ends id="Header" -->
+   <div id="Content">
+	<img src="http://lylehadlockmusic.com/images/LyleHadlockMusicLogo_small.jpg"/>
+	 
+		<!-- begin profile_widget.tmpl --> 
+
+ 
+	<p style="text-align:right"> 
+		 
+			[<a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/profile_login/">Profile Register/Log In</a>] (<a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/profile_help/">What's This?</a>)
+		 
+		
+
+		
+	</p> 
+	
+ 
+<!-- end profile_widget.tmpl --> 
+
+ 
+	 
+	
+	 
+		 
+
+		 
+	 
+
+
+	
+    <!-- begin list_page_screen.tmpl -->
+
+<!-- begin list_breadcrumbs_widget.tmpl -->
+
+<p id="breadcrumbs">
+ <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi">
+  Dada Mail
+ </a>
+ &#187; 
+ <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/list/LyleHadlockMusic/">
+  LyleHadlockMusic
+ </a>
+ 
+
+
+
+
+
+
+
+
+</p>
+
+<!-- end list_breadcrumbs_widget.tmpl -->
+
+<h1>
+ LyleHadlockMusic
+</h1>
+
+ 
+
+
+<!-- begin subscription_form_widget.tmpl --> 
+
+
+
+ 
+
+    <form action="http://www.lylehadlockmusic.com/dadamail/mail.cgi" method="post">
+
+ 
+
+<fieldset>
+<legend>
+ Subscribe/Unsubscribe  on LyleHadlockMusic
+</legend>
+
+ 
+    
+
+    <input type="hidden" name="list" value="LyleHadlockMusic" />
+
+
+<p>
+<label for="email" style="width: 7em;float: left;text-align: right;margin-right: 0.5em;display: block" >
+Email&nbsp;Address: 
+</label>
+ 
+	<input type="text" name="email" id="email" value="" /> <span class="error">* Required</span>
+ 
+
+</p>
+
+ 
+
+	 
+
+ 
+
+
+<hr style="border-top: 1px solid black;" /> 
+
+ 
+    <p>
+    <label for="f_s" style="width: 7em;float: left;text-align: right;margin-right: 0.5em;display: block">
+    Subscribe
+    </label>
+    <input type="radio" name="f" id="f_s" value="subscribe" checked="checked" />
+    </p> 
+    
+    <p> 
+    <label for="f_u" style="width: 7em;float: left;text-align: right;margin-right: 0.5em;display: block">Unsubscribe</label> 
+    <input type="radio" name="f"  id="f_u"  value="unsubscribe"  />
+    </p>   
+
+ 
+
+<hr style="border-top: 1px solid black;" /> 
+
+<p style="text-align:right;display:block">
+<input type="submit" value="Submit Your Information" class="processing" />
+</p> 
+
+
+ 
+
+
+
+
+</fieldset>
+</form> 
+
+
+
+  
+<!-- end subscription_form_widget.tmpl --> 
+ 
+	
+
+<div id="list_information">
+
+<h2>List Information:</h2>
+
+<ul> 
+     
+        
+        <li>
+         <p>
+			This list is an announce-only list.
+         </p>
+		</li>
+
+
+      
+</ul>
+
+
+ LyleHadlockMusic.com Customer List
+
+
+
+
+</div> 
+
+
+
+
+	
+	<h2>
+	 Privacy Policy:
+	</h2>
+	<p>
+	 We respect your privacy.  We do not sell or share any email addresses with anyone.  You will only receive email messages from LyleHadlockMusic.com when important events occur.
+	</p>
+	
+
+
+	
+	<h2>Archives:</h2> 
+	
+	
+		<!-- begin archive_list_widget.tmpl -->
+
+ 
+	<ol>
+
+	
+
+		 <li value="22">
+		 <!-- Archive Id: 20180407153007 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20180407153007/">
+		     Lyle Hadlock Ward Mother's Day Offer - $2 CDs for wards & branches
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent April 7th 2018 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com) Mother's Day Offer Mother's Day is Sunday May 13th. This year Lyle is offering his brand new cd Simply Sacred for church units to purchase as a Mother's day gift. Each CD is only $2.00 + shipping...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="21">
+		 <!-- Archive Id: 20180325163706 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20180325163706/">
+		     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com)
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent March 25th 2018 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com) Mother's Day Offer Mother's Day is Sunday May 13th. This year Lyle is offering his brand new cd Simply Sacred for church units to purchase as a Mother's day gift. Each CD is only $2.00 + shipping...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="20">
+		 <!-- Archive Id: 20180307150220 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20180307150220/">
+		     Lyle Hadlock Ward Mother's Day Offer - $2 CDs for wards & branches
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent March 7th 2018 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com) Mother's Day Offer Mother's Day is Sunday May 13th. This year Lyle is offering his brand new cd Simply Sacred for church units to purchase as a Mother's day gift. Each CD is only $2.00 + shipping...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="19">
+		 <!-- Archive Id: 20180305180913 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20180305180913/">
+		     Lyle Hadlock Mother's Day Offer
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent March 5th 2018 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com) Mother's Day Offer Mother's Day is Sunday May 13th. This year Lyle is offering his brand new cd Simply Sacred for church units to purchase as a Mother's day gift. Each CD is only $2.00 + shipping...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="18">
+		 <!-- Archive Id: 20170131215132 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20170131215132/">
+		     Free Easter Cantata Sheetmusic
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent January 31st 2017 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Free Easter Catata from Lyle Hadlock (LyleHadlockMusic.com) Free Easter Cantata Sheetmusic Download This year Lyle is offering an Easter Catata Sheetmusic download as a free gift. It is entitled  Whom Say Ye That I Am?  Download it here. Have a wonderful ...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="17">
+		 <!-- Archive Id: 20160407085259 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20160407085259/">
+		     Lyle Hadlock Mother's Day Special Ends Soon
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent April 7th 2016 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com) Mother's Day Offer /(Time is running out)/ Mother's Day is Sunday May 8th. This year Lyle is offering Take Time to Be Holy for church units to purchase as a Mother's day gift. Each CD is only $2....
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="16">
+		 <!-- Archive Id: 20160228205245 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20160228205245/">
+		     Lyle Hadlock Mother's Day Offer
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent February 28th 2016 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com) Mother's Day Offer Mother's Day is Sunday May 8th. This year Lyle is offering Take Time to Be Holy for church units to purchase as a Mother's day gift. Each CD is only $2.00 + shipping/handling w...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="15">
+		 <!-- Archive Id: 20150413122809 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20150413122809/">
+		     Lyle Hadlock Ward Mother's Day Offer - $2 CDs for wards & branches
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent April 13th 2015 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com) Mother's Day Offer Mother's Day is Sunday May 10th. This year Lyle is offering all of his CD titles for church units to purchase as a Mother's day gift. Each CD is only $2.00 + shipping/handling ...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="14">
+		 <!-- Archive Id: 20141205152256 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20141205152256/">
+		     Lyle Hadlock in Concert - Dec 6th
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent December 5th 2014 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			    Lyle Hadlock in Concert This Weekend   Saturday Dec 6th Lyle Hadlock will be performing at the &quot;Hope for Tomorrow&quot; concert on Saturday   December 6th at Nuskin in Provo, Utah.   See the new Press   Release! and the Information Video. Tickets are ...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+		 <li value="13">
+		 <!-- Archive Id: 20141115103905 --> 
+		  <p>
+		   <strong>
+		    <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/20141115103905/">
+		     Lyle Hadlock in Concert - Dec 6th
+		    </a>
+		   </strong>
+		   <br />
+		   <em>
+		    Sent November 15th 2014 
+		   </em>
+		  </p>
+
+		
+
+			  <p>
+			   <em>
+			     Lyle Hadlock in Concert - Dec 6th Provo, Utah Lyle Hadlock will be performing at the &quot;Hope for Tomorrow&quot; concert on December 6th at Nuskin in Provo, Utah.  See the new Press Release!. Purchase tickets Come and enjoy the concert and support those...
+			   </em>
+			  </p>
+
+		
+
+	 </li>
+
+	
+
+	</ol>
+
+
+	 
+
+	<table cellpadding="5" width="100%"> 
+	 <tr>
+	  <td valign="top" align="left" width="33%">
+	   <p>
+	    <strong>
+	     &lt; &lt;<a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi?flavor=archive;list=LyleHadlockMusic;start=10">Previous</a>
+	    </strong>
+	   </p>
+	  </td> 
+	  
+	  <td valign="top" align="center" width="33%"> 
+	   <p>
+	    <strong>
+	     <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi?flavor=archive;list=LyleHadlockMusic">Archive Index</a>
+	    </strong>
+	   </p>
+	  </td>
+	  
+	  
+	  <td valign="top" align="right" width="33%"> 
+	   <p>
+	    <strong>
+	     &nbsp;
+	    </strong>
+	   </p>
+	  </td>
+	 </tr>
+	</table> 
+
+	 
+
+	<!-- begin archive_search_form.tmpl -->
+
+<form action="http://www.lylehadlockmusic.com/dadamail/mail.cgi" method="post">
+ <p>
+  <label for="keyword">
+   Search 
+  </label>
+  this list's archives:
+  <br />
+  <input type="text"   name="keyword" id="keyword" size="12" />
+  <input type="hidden" name="list" value="LyleHadlockMusic" />
+  <input type="hidden" name="f"    value="search_archive" />
+  <input type="submit" class="processing" value="Search" />
+ </p>
+</form>
+
+<!-- end archive_search_form.tmpl -->
+ 
+
+	<!-- end archive_list_widget.tmpl -->
+	
+
+
+
+
+
+
+
+	     
+	 	    <!-- begin newsfeed_widget.tmpl --> 
+
+
+ 
+
+    <p style="text-align:right">
+    
+    
+     (archive
+      <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive_rss/LyleHadlockMusic/">
+       rss
+      </a>, 
+      <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive_atom/LyleHadlockMusic/">
+       atom
+      </a>
+      
+      <img src="http://www.lylehadlockmusic.com/dadamail/mail.cgi/img/badge_feed.png/" />     
+     )
+    </p>
+        
+ 
+
+
+<!-- end newsfeed_widget.tmpl --> 
+
+	     
+
+
+
+    
+
+
+
+	
+	<p style="text-align:center">
+	 <a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/sign_in/LyleHadlockMusic/">
+	  <strong>
+	   Administration
+	  </strong>
+	 </a>
+	</p>
+	
+
+
+<!-- end list_page_screen.tmpl -->
+
+<p style="font-size:10px;font-family:Verdana,Arial;text-align:center">Powered by <a href="http://dadamailproject.com" target="_blank" style="font-size:10px;font-family:Verdana,Arial">Dada Mail 4.3.2 Stable 01/16/10</a><br />Copyright &copy; 1999-2010, <a href="http://dadamailproject.com/justin" target="_blank" style="font-size:10px;font-family:Verdana,Arial">Simoni Creative</a>. <a href="http://www.simplescripts.com/script_details/install:Dada Mail" title="install Dada Mail">Install Dada Mail</a> <a href="http://www.hostmonster.com" title="web hosting">web hosting</a></p> 
+ 
+
+
+
+	
+	
+   </div><!-- ends id="Content" -->
+  </div><!-- ends id="PageWrapper" -->
+ </body>
+</html>
+
+
+

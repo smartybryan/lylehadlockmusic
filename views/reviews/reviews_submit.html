@@ -1,0 +1,27 @@
+<section class="auxpage">
+    <h1 class="auxpage_header">Submit a Review</h1>
+
+    <form method="POST" action="http://lylehadlockmusic.com/cgi-bin/monstermail" enctype="multipart/form-data"
+          onSubmit="return ReviewCheckRequiredFields()" name="AddReview">
+        <input type="hidden" name="redirect" value="http://lylehadlockmusic.com/#!/reviews_success">
+        <input type="hidden" name="subject" value="Lyle Hadlock Review Email"/>
+        <input type="hidden" name="mailfrom" value="lyle@lylehadlockmusic.com"/>
+        <br>
+        Rating (Stars)
+        <input type="radio" value="1 Star" name="stars" tabindex="1">
+        <input type="radio" value="2 Stars" name="stars" tabindex="2">
+        <input type="radio" value="3 Stars" name="stars" tabindex="3">
+        <input type="radio" value="4 Stars" name="stars" tabindex="4">
+        <input type="radio" value="5 Stars" checked name="stars" tabindex="5">
+
+        <p>Name
+            <br><input type="text" name="from" size="20" tabindex="6">
+        <p>City, State
+            <br><input type="text" name="location" size="30" tabindex="7">
+        <p>Review
+            <br><textarea rows="10" name="review" cols="40" tabindex="8"></textarea>
+        <p>
+            <input type="submit" value="Submit Review" tabindex="9">&nbsp; </p>
+    </form>
+
+</section>

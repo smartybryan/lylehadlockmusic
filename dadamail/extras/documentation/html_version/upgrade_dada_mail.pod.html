@@ -1,0 +1,164 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Upgrade Dada Mail</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#upgrading_dada_mail">Upgrading Dada Mail</a></li>
+	<li><a href="#before_we_get_started">Before We Get Started</a></li>
+	<ul>
+
+		<li><a href="#basic__or__contemporary">&quot;Basic&quot;, or, &quot;Contemporary&quot;?</a></li>
+		<ul>
+
+			<li><a href="#basic_installation">Basic Installation</a></li>
+			<ul>
+
+				<li><a href="#more_information">More Information</a></li>
+			</ul>
+
+			<li><a href="#contemporary_installation">Contemporary Installation</a></li>
+		</ul>
+
+	</ul>
+
+	<li><a href="#step__1_move_the_old_program_files_out_of_the_way">Step #1 Move The Old Program Files Out of the Way</a></li>
+	<ul>
+
+		<li><a href="#step__2_install_the_new_dada_mail">Step #2 Install the new Dada Mail</a></li>
+		<li><a href="#changelog">Changelog</a></li>
+	</ul>
+
+	<li><a href="#screencasts">Screencasts</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="upgrading_dada_mail">Upgrading Dada Mail</a></h1>
+<p>
+</p>
+<hr />
+<h1><a name="before_we_get_started">Before We Get Started</a></h1>
+<p>Before upgrading Dada Mail, find out how you installed and configured Dada Mail before. If you don't know or aren't sure, don't upgrade Dada Mail: you will run into major headaches.</p>
+<p>
+</p>
+<h2><a name="basic__or__contemporary">&quot;Basic&quot;, or, &quot;Contemporary&quot;?</a></h2>
+<p>We're going to only differentiate between two types of installations: &quot;Basic&quot; and, &quot;Contemporary&quot;</p>
+<p>
+</p>
+<h3><a name="basic_installation">Basic Installation</a></h3>
+<p>A, &quot;Basic&quot; installation changes the configuration variables right in the, <code>dada/DADA/Config.pm</code> file - usually you want to be very much aware of the following variables:</p>
+<ul>
+<li><strong><a name="_program_root_password" class="item">$PROGRAM_ROOT_PASSWORD</a></strong>
+
+<li><strong><a name="_files" class="item">$FILES</a></strong>
+
+<li><strong><a name="_mailprog" class="item">$MAILPROG</a></strong>
+
+<li><strong><a name="_program_url" class="item">$PROGRAM_URL</a></strong>
+
+</ul>
+<p>You'll know if you have a, &quot;Basic&quot; installation of Dada Mail, if the,
+ <a href="#_files"><code>$FILES</code></a> variable in the, <code>dada/DADA/Config.pm</code> file is  filled out to a directory that <em>actually</em> exists and that directory holds files/directories that have something to do with Dada Mail.</p>
+<p>If you are running a &quot;Basic&quot; Installation of Dada Mail, we really suggest upgrading by taking note of where your <a href="#_files"><code>$FILES</code></a> variable is located and importing the old information <em>after</em> a clean installation.</p>
+<p>
+</p>
+<h4><a name="more_information">More Information</a></h4>
+<p><a href="basic_two_contemporary_installation.pod.html">basic_two_contemporary_installation.pod.html</a></p>
+<p>
+</p>
+<h3><a name="contemporary_installation">Contemporary Installation</a></h3>
+<p>A Contemporary Installation uses an outside configuration file to set the configuration variables in.</p>
+<p>You'll know if you have a Contemporary Installation, if those same four variables in the, <code>dada/DADA/Config.pm</code> file:</p>
+<ul>
+<li><strong>$PROGRAM_ROOT_PASSWORD</strong>
+
+<li><strong>$FILES</strong>
+
+<li><strong>$MAILPROG</strong>
+
+<li><strong>$PROGRAM_URL</strong>
+
+</ul>
+<p>Are still in their default values and your Dada Mail seems to be 
+functioning fine. This probably means that your config variables are being read from an outside config file.</p>
+<p>For upgrade purposes, note what the, <code>$PROGRAM_CONFIG_FILE_DIR</code> in the, <code>dada/DADA/Config.pm</code> is set to. It's OK if it's only set to, <code>auto</code>.</p>
+<p>
+</p>
+<hr />
+<h1><a name="step__1_move_the_old_program_files_out_of_the_way">Step #1 Move The Old Program Files Out of the Way</a></h1>
+<p>Dada Mail, &quot;The Program&quot; is the collection of files and directories that are in the directory called, <code>dada</code>.</p>
+<p>This directory is most likely located in your cgi-bin. It's directory structure like this:</p>
+<pre>
+ cgi-bin (directory)
+    - dada (directory, _lower_ case)
+        - mail.cgi 
+        - DADA (directory, UPPER case)
+            - App (directory)
+            - Config.pm
+            - etc, etc, etc</pre>
+<p>This is Dada Mail, &quot;The Program&quot;</p>
+<p>Simply rename this directory on the server from:</p>
+<pre>
+ dada</pre>
+<p>to something like:</p>
+<pre>
+ dada-old_ver</pre>
+<p>Moving the directory:</p>
+<ul>
+<li><strong><a name="keeps_a_backup_that_is_known_to_work" class="item">Keeps a backup that is known to work</a></strong>
+
+<li><strong><a name="makes_sure_we_don_t_overwrite_the_old_version_of_the_program_with_the_new_version" class="item">Makes sure we don't overwrite the old version of the program with the new version</a></strong>
+
+<li><strong><a name="makes_sure_we_don_t_mix_up_the_old_version_of_dada_mail_with_the_new_version_of_dada_mail" class="item">Makes sure we don't mix up the old version of Dada Mail with the new version of Dada Mail</a></strong>
+
+</ul>
+<p>
+</p>
+<h2><a name="step__2_install_the_new_dada_mail">Step #2 Install the new Dada Mail</a></h2>
+<p>Now, you can just follow the instructions for an installation of Dada Mail:</p>
+<p><a href="install_dada_mail.pod.html">install_dada_mail.pod.html</a></p>
+<ul>
+<li><strong><a name="if_your_last_installation_was_a_contemporary_installation_use_the_same_value_as_before_for_your_dada_files_location" class="item">If your last installation was a Contemporary Installation, use the same value as before for your <code>.dada_files</code> location.</a></strong>
+
+<p>Your Dada Files Location is usually the directory above your <code>PROGRAM_CONFIG_FILE_DIR</code> variable. For example, if my <code>PROGRAM_CONFIG_FILE_DIR</code> is set to:</p>
+<p><em>/home/myaccount/.dada_files/.configs</em></p>
+<p>my <code>.dada_files</code> directory is:</p>
+<p><em>/home/myaccount/.dada_files</em></p>
+</li>
+<li><strong><a name="if_your_last_installation_was_a_basic_installation_install_dada_mail_as_if_it_s_a_brand_new_installation_and_then_move_your_old_list_settings_archives_etc_files_over" class="item">If your last installation was a Basic Installation, install Dada Mail as if it's a brand new installation and then move your old list/settings/archives/etc files over:</a></strong>
+
+<p><a href="basic_two_contemporary_installation.pod.html">basic_two_contemporary_installation.pod.html</a></p>
+</li>
+</ul>
+<p>
+</p>
+<h2><a name="changelog">Changelog</a></h2>
+<p>It's a <strong><em>very very</em></strong> good idea to look at the changelog and not <strong>any</strong> incompatibilities&gt; between versions. It's possible that incompatibilities could break your installation, when you upgrade.</p>
+<p>
+</p>
+<hr />
+<h1><a name="screencasts">Screencasts</a></h1>
+<p>The following screencast walks through how to upgrade Dada Mail. The original Dada Mail was installed using the Dada Mail installer:</p>
+<p><object width="960" height="745"><param name="movie" value="http://www.youtube.com/v/mr4veygFD8U?fs=1&amp;hl=en_US&amp;hd=1&amp;color1=0x2b405b&amp;color2=0x6b8ab6"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/mr4veygFD8U?fs=1&amp;hl=en_US&amp;hd=1&amp;color1=0x2b405b&amp;color2=0x6b8ab6" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="960" height="745"></embed></object></p>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<section class="auxpage">
+    <small><a href="#!/main">Home</a> > Mother's Day (step 1)</small>
+
+    <div class="float_none"/>
+
+    <h1>Mother's Day Special</h1>
+
+    <div class="large">
+        The Lyle Hadlock Mother's Day special is an annual event where Lyle
+        offers a certain CD for <span class="italic bold">church units</span> at the special rate of $2 each - plus
+        shipping.
+        <br/><br/>
+        This year Lyle is offering his brand new CD
+        <span class="bold"><a href="#!/cdinfo?id=ss">Simply Sacred</a></span>
+        at this special price.
+        <!-- <span class="red">Only one CD title is allowed per order.</span>  Please decide which CD you would like to order before proceeding. -->
+        <br/><br/>
+        <!--
+                <div class="large red bold">Sold out list (no longer available for Mother's Day orders):</div>
+                <ul class="normal red">
+                    <li>Take Time To Be Holy</li>
+                    <li>There Is A Green Hill Far Away</li>
+                </ul>
+                <br>
+        -->
+        <div class="xlarge darkred bold">
+            Please Read Before Ordering:
+        </div>
+        <ul>
+            <li>All orders are by <strong>credit card</strong> only and orders will continue to be accepted while supplies last.</li>
+            <li>Each CD is contained in a factory printed cardstock case.</li>
+            <li><span class="blue bold">DELIVERY</span> orders will be shipped (UPS Ground) starting April 27th. (Mother's Day is May 13th).
+            <br>&nbsp;&nbsp; - Cost of shipping is around $18 per 100 CDs inside Utah or $23 per 100 outside Utah.
+            <li><span class="blue bold">PICKUP</span> orders will be available starting April 30th in Ogden, UT.<br>&nbsp;&nbsp; - An email will be sent before that time with instructions.<br>&nbsp;&nbsp; - Cost of handling is $10 for the entire order.</li>
+        </ul>
+
+        <br/>
+        <span class="bold">If you are ready, fill out all fields below then <span class="bold">click "Next Step"</span></span>
+        <br/><br/>
+
+        <form method="POST" action="http://lylehadlockmusic.com/cgi-bin/monstermail" enctype="multipart/form-data"
+              onSubmit="return MothersDayCheckRequiredFields()" name="RequestInfo">
+            &nbsp;
+            <input type="hidden" name="redirect" value="http://lylehadlockmusic.com/#!/mothersday_delivery">
+            <input type="hidden" name="subject" value="Mothers Day Order"/>
+            <input type="hidden" name="from" value=""/>
+
+            <span class="normal red">All fields are required</span>
+            <hr>
+
+            <p>
+                <label for="bishop"><span>Bishop / Branch Pres.</span></label>
+                <input type="text" id="bishop" name="bishop" size="20">
+            </p>
+            <p>
+                <label for="ward">Ward / Branch</label>
+                <input type="text" id="ward" name="ward" size="20">
+            </p>
+            <p>
+                <label for="contact">Your Name </label>
+                <input type="text" id="contact" name="contact" size="20">
+            </p>
+            <p>
+                <label for="mailfrom">Your Email</label>
+                <input type="text" id="mailfrom" name="mailfrom" size="20">
+            </p>
+            <p>
+                <label for="phone">Your Phone</label>
+                <input type="text" id="phone" name="phone" size="20">
+            </p>
+            <p>
+                <label for="how">How did you hear about this special?</label>
+                <input type="text" id="how" name="how" size="20">
+            </p>
+            <p>
+                <label>&nbsp;</label>
+                <input type="submit" value="Next Step">
+            </p>
+        </form>
+
+        <br>
+        <div class="bold red">Note:</div>
+        <span>If you have already filled out the above form this year, you may <a class="bold green" href="#!/mothersday_delivery">skip
+            it</a></span>
+        <br><br>
+    </div>
+
+</section>

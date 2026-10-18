@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SOAP Web Services for Dada Mail Proof of Concept</title>
+<link rel="stylesheet" href="/Users/justin/Documents/DadaMail/build/tmp/dada/extras/documentation/pod_source/pod_styles.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:_postfix@neige.apple.com" />
+</head>
+
+<body>
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#soap_web_services_for_dada_mail_proof_of_concept">SOAP Web Services for Dada Mail Proof of Concept</a></li>
+	<li><a href="#api_currently_the_soap_api_only_provides_two_methods_">API Currently the SOAP API only provides <strong>two</strong> methods:</a></li>
+	<li><a href="#introduction">Introduction</a></li>
+	<li><a href="#requirements">Requirements</a></li>
+	<li><a href="#installation">Installation</a></li>
+	<li><a href="#configuration">Configuration</a></li>
+	<li><a href="#running">Running</a></li>
+	<li><a href="#the_future_of_soap_web_services_in_dada_mail">The Future of SOAP Web Services in Dada Mail</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<hr />
+<h1><a name="soap_web_services_for_dada_mail_proof_of_concept">SOAP Web Services for Dada Mail Proof of Concept</a></h1>
+<p>You should be able to find these files in the Dada Mail distro, under, <em>dada/extras/scripts/SOAP</em></p>
+<p>and should include,</p>
+<ul>
+<li><strong><a name="a_cgi_soap_server_written_in_perl_that_ties_into_the_dada_mail_api_soap_server_cgi" class="item">a CGI SOAP server, written in Perl that ties into the Dada Mail API. (soap_server.cgi)</a></strong>
+
+<li><strong><a name="perl" class="item">a SOAP client written in Perl (soap_client.cgi)</a></strong>
+
+<li><strong><a name="php" class="item">a SOAP client, written in php (soap_client.php)</a></strong>
+
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="api_currently_the_soap_api_only_provides_two_methods_">API Currently the SOAP API only provides <strong>two</strong> methods:</a></h1>
+<ul>
+<li><strong><a name="subscription_check" class="item">subscription_check</a></strong>
+
+<p><a href="#subscription_check"><code>subscription_check</code></a> works much like this method</p>
+<p><a href="http://dadamailproject.com/d/MailingList_Subscribers.pm.html#subscription_check">http://dadamailproject.com/d/MailingList_Subscribers.pm.html#subscription_check</a></p>
+</li>
+<li><strong><a name="subscribe" class="item">subscribe</a></strong>
+
+<p><a href="#subscribe"><code>subscribe</code></a> works much like if you submitted your own email address into a Dada Mail form, except it won't return HTML.</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="introduction">Introduction</a></h1>
+<p>The SOAP interface allows programs written in languages other than Perl and/or located on a separate system to interact with Dada Mail. This type of web service could theoretically work with most any of Dada Mail's high level functions: Validating Subscriptions, Subscribing Mailing List Subscribers, Sending Messages, working with archived messages, etc.</p>
+<p><em>This</em> small set of scripts is only to be as an example to show that it is entirely possible.</p>
+<p>
+</p>
+<hr />
+<h1><a name="requirements">Requirements</a></h1>
+<p>The Perl server and the Perl client requires the SOAP::Lite CPAN distro:</p>
+<p><a href="http://www.soaplite.com/">http://www.soaplite.com/</a></p>
+<p><a href="http://search.cpan.org/~mkutter/SOAP-Lite-0.710.08/">http://search.cpan.org/~mkutter/SOAP-Lite-0.710.08/</a></p>
+<p>The php client requires the PEAR SOAP distro:</p>
+<p><a href="http://pear.php.net/package/SOAP">http://pear.php.net/package/SOAP</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="installation">Installation</a></h1>
+<p>Place both the soap_server.cgi and soap_client.cgi into the, &quot;dada&quot; directory of your working Dada Mail installation. Change the permissions of both to, &quot;755&quot;.</p>
+<p>Place the soap_client.php file somewhere on your website, however you php folks do it.</p>
+<p>
+</p>
+<hr />
+<h1><a name="configuration">Configuration</a></h1>
+<p>Both the, soap_client.php and soap_client.cgi scripts have *three* variables you may have to change:</p>
+<ul>
+<li><strong><a name="_proxy" class="item">$proxy</a></strong>
+
+<p>This should hold the URL to the soap_server.cgi script</p>
+</li>
+<li><strong><a name="_email" class="item">$email</a></strong>
+
+<p>This should hold an email address you'd like to validate</p>
+</li>
+<li><strong><a name="_list" class="item">$list</a></strong>
+
+<p>This should hold a Dada Mail list shortname you'd like to validate against</p>
+</li>
+</ul>
+<p>
+</p>
+<hr />
+<h1><a name="running">Running</a></h1>
+<p>The soap_client.cgi and soap_client.php scripts can be run simply by visiting them in a webserver. Doing so will print a simple report, like so:</p>
+<pre>
+        * Email: user@example.com
+        * List: mylist
+ 
+ Subscription Check: 0
+ Errors: 
+        * Error: already_sent_sub_confirmation
+        * Error: subscribed
+ done.</pre>
+<p>And, that's it.</p>
+<p>
+</p>
+<hr />
+<h1><a name="the_future_of_soap_web_services_in_dada_mail">The Future of SOAP Web Services in Dada Mail</a></h1>
+<p>It would be great to have some sort of Web Service available for Dada Mail. It will have to depend on user and developer interest in accomplishing this.</p>
+<p>If you are interested in commissioning this feature, in part or in whole, please contact me at:</p>
+<p><a href="http://dadamailproject.com/contact/">http://dadamailproject.com/contact/</a></p>
+
+</body>
+
+</html>

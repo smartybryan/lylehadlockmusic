@@ -1,0 +1,12 @@
+<section class="auxpage">
+    <h1 class="auxpage_header">{{gallery.name}}</h1>
+
+    <p ng-bind-html="trustHtml(gallery.description)"></p>
+
+    <div class="gallery" ng-repeat="photo in gallery.photos">
+        <a target="_blank" href="{{photo.url}}">
+            <img src="{{photo.url}}">
+            <div class="desc">{{photo.caption}}</div>
+        </a>
+    </div>
+</section>

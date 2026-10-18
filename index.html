@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="mainApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="mainApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="mainApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="mainApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LyleHadlockMusic.com</title>
+    <meta name="description"
+          content="LyleHadlockMusic.com features relaxing and inspirational arrangements of the world's most beautiful hymns. Lyle Hadlock is a master pianist and composer which is reflected in his arrangements.">
+    <meta name="keywords"
+          content="Lyle Hadlock official site music hymns hymn relaxing inspirational instrumental piano lds sabbath composer music musical therapy ward mothers day gift cd idea sacrament meeting">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<header>
+    <div ng-show="main_header" ng-include="'views/main_header.html'"></div>
+    <div ng-show="!main_header" ng-include="'views/aux_header.html'"></div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#!/main">Home</a></li>
+        <li><a href="#!/bio">Bio</a></li>
+        <li><a href="#!/contactlyle">Contact Lyle</a></li>
+        <li><a href="#!/gallery">Gallery</a></li>
+        <li><a href="#!/reviews">Reviews</a></li>
+        <li><a href="#!/links">Links</a></li>
+        <li><a href="#!/sheetmusic">Sheet Music</a></li>
+        <li><a href="#!/videos">Videos</a></li>
+        <!-- <li><a href="#!/mothersday"><span class="red">Mother's Day</span></a></li> -->
+    </ul>
+</nav>
+
+<div ng-view></div>
+
+<footer>
+    <div ng-include="'views/footer.html'"></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="views/main/main.js"></script>
+<script src="views/cdinfo/cdinfo.js"></script>
+<script src="views/bio/bio.js"></script>
+<script src="views/contactlyle/contactlyle.js"></script>
+<script src="views/contactlyle/contactlyle_success.js"></script>
+<script src="views/gallery/gallery.js"></script>
+<script src="views/gallery/gallery_show.js"></script>
+<script src="views/reviews/reviews.js"></script>
+<script src="views/reviews/reviews_submit.js"></script>
+<script src="views/reviews/reviews_success.js"></script>
+<script src="views/links/links.js"></script>
+<script src="views/sheetmusic/sheetmusic.js"></script>
+<script src="views/videos/videos.js"></script>
+<script src="views/mothersday/mothersday.js"></script>
+<script src="views/mothersday/mothersday_delivery.js"></script>
+<script src="views/sitefeedback/sitefeedback.js"></script>
+<script src="views/sitefeedback/sitefeedback_success.js"></script>
+
+<script type="text/javascript" language="JavaScript">
+    function MothersDayCheckRequiredFields() {
+        if (document.RequestInfo.bishop.value.length == 0 ||
+                document.RequestInfo.ward.value.length == 0 ||
+                document.RequestInfo.contact.value.length == 0 ||
+                document.RequestInfo.mailfrom.value.length == 0 ||
+                document.RequestInfo.phone.value.length == 0 ||
+                document.RequestInfo.how.value.length == 0) {
+            alert('Please complete all fields before clicking "Next Step"');
+            return false;
+        }
+        document.RequestInfo.from.value = document.RequestInfo.mailfrom.value;
+        return true;
+    }
+
+    function SendMessageCheckRequiredFields() {
+        if (document.SendMessage.mailfrom.value.length == 0 ||
+                document.SendMessage.message.value.length == 0) {
+            alert('Please complete all fields before sending your message');
+            return false;
+        }
+        document.SendMessage.from.value = document.SendMessage.mailfrom.value;
+        return true;
+    }
+
+    function ReviewCheckRequiredFields() {
+        if (document.AddReview.mailfrom.value.length == 0 ||
+                document.AddReview.review.value.length == 0) {
+            alert('Please fill-in at least Name and Review before submitting your review.');
+            return false;
+        }
+        return true;
+    }
+
+</script>
+
+
+
+</body>
+</html>

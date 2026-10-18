@@ -1,0 +1,100 @@
+From: "<!-- tmpl_var list_settings.list_name -->" <lyle@lylehadlockmusic.com>
+X-Priority: 3
+List: LyleHadlockMusic
+List-Archive: <http://www.lylehadlockmusic.com/dadamail/mail.cgi/archive/LyleHadlockMusic/>
+List-ID: <LyleHadlockMusic.host303.hostmonster.com>
+List-Owner: <<!-- tmpl_var list_settings.list_owner_email -->>
+List-Subscribe: <<!-- tmpl_var PROGRAM_URL -->/s/<!-- tmpl_var list_settings.list -->/<!-- tmpl_var subscriber.email_name -->/<!-- tmpl_var subscriber.email_domain -->/>
+List-Unsubscribe: <<!-- tmpl_var PROGRAM_URL -->/u/<!-- tmpl_var list_settings.list -->/<!-- tmpl_var subscriber.email_name -->/<!-- tmpl_var subscriber.email_domain -->/>
+List-URL: <<!-- tmpl_var PROGRAM_URL -->/list/<!-- tmpl_var list_settings.list -->/>
+Message-ID: <20180407153159.14190162@lylehadlockmusic.com>
+X-Mailer: Dada Mail 4.3.2 Stable 01/16/10 
+Content-type: multipart/alternative; boundary="----------=_1523136719-969335-0"
+MIME-Version: 1.0
+Subject: Lyle Hadlock Ward Mother's Day Offer - $2 CDs for wards & branches
+
+This is a multi-part message in MIME format...
+
+------------=_1523136719-969335-0
+Content-Type: text/plain
+Content-Disposition: inline
+Content-Transfer-Encoding: binary
+MIME-Version: 1.0
+X-Mailer: MIME-tools 5.420 (Entity 5.420)
+Content-Length: 1361
+
+To subscribe to, "<!-- tmpl_var list_settings.list_name -->", click the link below:
+<!-- tmpl_var PROGRAM_URL -->/n/<!-- tmpl_var list_settings.list -->/<!-- tmpl_var subscriber.email_name -->/<!-- tmpl_var subscriber.email_domain -->/<!-- tmpl_var subscriber.pin -->/
+
+
+Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com)
+Mother's Day Offer
+Mother's Day is Sunday May 13th.
+This year Lyle is offering his brand new cd Simply Sacred for church units to purchase as a Mother's day gift.
+Each CD is only $2.00 + shipping/handling when purchased by a ward or branch representative.If you are willing to pickup your order in Ogden UT, you can save on shipping costs!
+Please place your orders before Monday April 16th - one week away!  
+
+Listen to the full CD and get full details about the offer on http://www.LyleHadlockMusic.com.  
+
+Wards and branches everywhere are looking for a special gift for Mother's Day.
+Please spread the word by informing every Bishop and Branch President you know about the offer and the web site.
+It's such a great gift for Mother's Day and is one that will be treasured for years to come!
+
+Order deadline is just 1 week away - April 16th.
+
+Have a great day!
+
+Warm regards,
+Bryan Amundson
+Webmaster - LyleHadlockMusic.com
+
+
+Mailing List Powered by Dada Mail
+http://www.lylehadlockmusic.com/dadamail/mail.cgi/what_is_dada_mail/
+
+------------=_1523136719-969335-0
+Content-Disposition: inline
+Content-Transfer-Encoding: binary
+Content-Type: text/html
+Content-length: 2718
+
+To subscribe to, "<!-- tmpl_var list_settings.list_name -->", click the link below:
+<!-- tmpl_var PROGRAM_URL -->/n/<!-- tmpl_var list_settings.list -->/<!-- tmpl_var subscriber.email_name -->/<!-- tmpl_var subscriber.email_domain -->/<!-- tmpl_var subscriber.pin -->/
+
+<!--
+Email subject:  Lyle Hadlock Ward Mother's Day Offer - $2 CDs for wards & branches
+-->
+<html>
+<head>
+<title>Mother's Day Offer from Lyle Hadlock (LyleHadlockMusic.com)</title>
+</head>
+<body>
+<a href="http://www.LyleHadlockMusic.com" target="_blank"><img src="http://lylehadlockmusic.com/img/LyleHadlockMusicLogo.jpg" alt=""/></a>
+<span style="font-family:Arial,Sans-serif; font-size:1.75em; color:black; text-decoration:none;font-weight:bold;color:#A80000;">Mother's Day Offer</span>
+<br>
+<div style="background-color: #FFF6D6; border: 2px dotted lightgray;padding:10px;">
+<p style="font-family:Arial,Sans-serif; font-size:1em;    color:black; text-decoration:none; font-weight:bold;">Mother's Day is Sunday May 13th.</p>
+<p style="font-family:Arial,Sans-serif; font-size:1.00em; color:black; text-decoration:none;">This year Lyle is offering his brand new cd <a href="http://www.lylehadlockmusic.com/#!/cdinfo?id=ss" target="_blank"><strong>Simply Sacred</strong></a> for church units to purchase as a Mother's day gift.</p>
+<span style="font-family:Arial,Sans-serif; font-size:1.00em; color:black; text-decoration:none;">Each CD is only $2.00 + shipping/handling when purchased by a ward or branch representative.<br><strong>If you are willing to pickup your order in Ogden UT, you can save on shipping costs!</strong><br><br>
+<span style="color:#A80000;">Please place your orders before Monday <strong>April 16th - one week away!</strong></span></span>  
+<br>
+<p style="font-family:Arial,Sans-serif; font-size:1.00em; color:black; text-decoration:none;">Listen to the full CD and get full details about the offer on <a href="http://www.lylehadlockmusic.com/#!/cdinfo?id=ss" target="_blank">http://www.LyleHadlockMusic.com</a>.  
+<br><br>
+Wards and branches everywhere are looking for a special gift for Mother's Day.<br>
+<strong>Please spread the word</strong> by informing every Bishop and Branch President you know about the offer and the web site.<br>
+It's such a great gift for Mother's Day and is one that will be treasured for years to come!
+<br><br>
+Order deadline is <span style="color:#A80000;">just 1 week away - April 16th.</span>
+<br><br>
+Have a great day!
+<br><br>
+<span style="font-style:italic;">Warm regards,</span><br>
+Bryan Amundson<br>
+Webmaster - LyleHadlockMusic.com
+</p>
+</div>
+
+<p><a href="http://www.lylehadlockmusic.com/dadamail/mail.cgi/what_is_dada_mail/">Mailing List Powered by Dada Mail</a></p>
+</body>
+</html>
+------------=_1523136719-969335-0--

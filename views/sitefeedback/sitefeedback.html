@@ -1,0 +1,28 @@
+<section class="auxpage">
+    <h1 class="auxpage_header">Send Site Feedback</h1>
+
+    <form action="http://lylehadlockmusic.com/cgi-bin/monstermail" enctype="multipart/form-data"
+          name="SendMessage" onSubmit="return SendMessageCheckRequiredFields()" method="POST">
+        <input type="hidden" name="redirect" value="http://lylehadlockmusic.com/#!/sitefeedback_success">
+        <input type="hidden" name="subject" value="Site Feedback Email"/>
+        <input type="hidden" name="from" value=""/>
+
+        <br>Your email address
+        <br>
+        <input type="text" name="mailfrom" size="20" tabindex="1">
+        <p>
+            Site Feedback
+            <br>
+            <textarea rows="10" name="message" cols="40" tabindex="2"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Send Message" tabindex="3">
+        </p>
+    </form>
+    <br>
+    <hr>
+    <p class="large bold">Privacy Statement</p>
+    Your email address will not in any way be shared with anyone else. By providing your email address it
+    simply gives us the ability to answer any questions you have.
+
+</section>

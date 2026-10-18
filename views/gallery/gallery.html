@@ -1,0 +1,10 @@
+<section class="auxpage">
+    <h1 class="auxpage_header">Galleries</h1>
+    <div class="gallery" ng-repeat="gallery in galleries">
+        <a href="#!/gallery_show?id={{gallery.id}}">
+            <img height="75%" width="75%" src="{{gallery.thumbnail}}">
+            <br>
+            <div class="desc large bold">{{gallery.name}}</div>
+        </a>
+    </div>
+</section>

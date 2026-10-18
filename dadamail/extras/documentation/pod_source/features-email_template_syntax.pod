@@ -1,0 +1,270 @@
+
+=pod
+
+=head1 The Dada Mail Email Template Syntax
+
+=head1 Audience
+
+This guide is meant to be read by everyone who would like to use the template features in Dada Mail's email messages. 
+
+=head1 The Basics
+
+=head2 Tags
+
+Templating in email messages works, because email messages have things called, B<tags>, which are placeholders for other information. 
+
+A tag looks like this: 
+
+ <!-- tmpl_var tag -->
+
+A tag will start with, C<E<lt>!-- tmpl_var >, will have a some text and then, C< --E<gt>>. Before an email message is sent out, the email
+message is first B<parsed> and these placeholder tags are replaced with what they represent. 
+
+Not all tags will represent everything - for example, you can't just have a tag that says: 
+
+ <!-- tmpl_var Current_President_Of_The_United_States -->
+
+and expect Dada Mail to figure out what you want. 
+
+=head3 Built-in Tags
+
+There's basically three different groups of tags that you can be sure are always available to you. 
+
+=head4 Global Tags
+
+These tags can be used in most every email message. This list isn't exhaustive, but should give you a good start
+
+=over
+
+=item * <!-- tmpl_var PROGRAM_NAME -->
+
+The name of this program - usually it's set to, B<Dada Mail>
+
+=item * <!-- tmpl_var PROGRAM_URL -->
+
+The URL to Dada Mail, ie: L<http://example.com/cgi-bin/dada/mail.cgi>
+
+=back
+
+=head4 List-Specific Tags
+
+Your list has a whole slew of attributes that make up its behavior. Most of the these attributes can be used  as tags in your email messages. 
+
+You'll know you're working with a list-specific attribute, as the tag will start out with: 
+
+	<!-- tmpl_var list_settings
+
+Notice the dot, C<.> at the end. 
+
+The tag will then be proceeded with the attribute you want to use and end with
+
+ -->
+
+For example, if you want to have a tag to show the List's Name, you'd write: 
+
+ <!-- tmpl_var list_settings.list_name -->
+
+To have a tag to show the list ower's email address, you'd write: 
+
+ <!-- tmpl_var list_settings.list_owner_email -->
+
+Here's a non-exhaustive list of available list-specific tags: 
+
+=over
+
+=item * <!-- tmpl_var list_settings.list -->
+
+Your list's shortname
+
+=item * <!-- tmpl_var list_settings.list_name -->
+
+Your list's name
+
+=item * <!-- tmpl_var list_settings.list_owner_email -->
+
+The List Owner's email address
+
+=item * <!-- tmpl_var list_settings.info -->
+
+The description of your list
+
+=item * <!-- tmpl_var list_settings.privacy_policy -->
+
+Your list's Privacy Policy
+
+=item * <!-- tmpl_var list_settings.physical_address -->
+
+Your list's physical address
+
+=back
+
+=head4 Subscriber-Specific Tags
+
+Information about whom you are emailing to is also available to you. 
+
+This concept is somewhat tricky, so explanation is necessary. 
+
+We're going to use the term, B<subscriber> in this case to describe the person we're emailing to, in the email message we're working on here. 
+
+For example, if we're sending a B<confirmation email message>, our subscriber will be the address that we're current emailing to, 
+even though they haven't yet subscribed. 
+
+Similar to the List-Specific Tags, Subscriber-Specific tags also have a way to let you know you're working with a subscriber-specific
+attribute. Tags that deal with subscriber information start with: C<E<lt>!-- tmpl_var subscriber.> and are proceeded with the attribute we want to use. 
+
+For example, to use a subscriber's email address, you would use: 
+
+ <!-- tmpl_var subscriber.email -->
+
+A few subscriber-specific tags are usually always available to you. In these examples we'll use the email address, 
+C<user@example.com> as the subscriber email address. The subscriber-specific tags are: 
+
+=over
+
+=item *  <!-- tmpl_var subscriber.email -->
+
+user@example.com
+
+=item * <!-- tmpl_var subscriber.email_name -->
+
+user
+
+=item * <!-- tmpl_var subscriber.email_domain -->
+
+example.com
+
+=back
+
+A very special case happens with email messages that are sent for B<email subscription confirmations>, B<email unsubscriotion confirmations> and B<List Invitations>
+
+In these email messages you also have the option to use the, C<E<lt>!-- tmpl_var subscriber.pin --E<gt>> tag. This tag holds the B<pin number> used to subscribe and unsubscribe an email subscriber. 
+
+
+You can also access the subscriber's saved field values. For example, if you have a field named, B<first_name>, you can use the following tag: 
+
+ <!-- tmpl_var subscriber.first_name -->
+
+=head1 Using Tags in Email Messages
+
+Once you understand how these tags are made, it's simple to use them in your message. For example, we can great our subscriber as such: 
+
+ Hello,  <!-- tmpl_var subscriber.email -->
+ 
+ You are subscribed to my list, <!-- tmpl_var list_settings.list_name -->. 
+
+ Hazzah!
+
+ -- <!-- tmpl_var list_settings.list_owner_email -->
+
+This will print out something like: 
+
+ Hello, user@example.com
+ 
+ You are subscribed to my list, My Awesome List. 
+ 
+ Hazzah!
+ 
+ -- listowner@example.com
+
+And that's all there is to it. 
+
+If you have a subcriber field named, B<first_name>, we can change the example above to: 
+
+ Hello,  <!-- tmpl_var subscriber.first_name -->
+ 
+ You are subscribed to my list, <!-- tmpl_var list_settings.list_name -->. 
+ 
+ Hazzah!
+ 
+ -- <!-- tmpl_var list_settings.list_owner_email -->
+ 
+This could print out something like: 
+ 
+ Hello, John,
+ 
+ You are subscribed to my list, My Awesome List. 
+ 
+ Hazzah!
+ 
+ -- listowner@example.com
+
+=head2 Looping
+
+Alongside tags that represent something, there's also tags that allow you to loop through all the information available.
+
+Currently, you can loop through all the B<subscriber> and B<list> specific information, using the, C<E<gt>!-- tmpl_loop --E<lt>> tag, like so: 
+
+ <!-- tmpl_loop subscriber -->
+ 	<!-- tmpl_var name -->: <!-- tmpl_var value -->
+ <!-- /tmpl_loop -->
+
+This will print out every attribute that's associated with the current email address. 
+
+Similarily, you can do this with the List Attributes: 
+
+ <!-- tmpl_loop list_settings -->
+ 	<!-- tmpl_var name -->: <!-- tmpl_var value --> 
+ <!-- /tmpl_loop -->
+
+=head1 Advanced Templating Syntax
+
+Under the hood, Dada Mail's email templating system is powered by B<HTML::Template>. Everything that can be done with it, 
+can probably be done with Dada Mail. 
+
+Here's more information: 
+
+L<http://search.cpan.org/~samtregar/HTML-Template/Template.pm>
+
+=head2 HTML::Template::Expr Support
+
+If simple C<if> and C<loop> statements don't have enough horesepower for you, Dada Mail does support the use of C<HTML::Template::Expr> type expressions. 
+
+More information:
+
+L<http://search.cpan.org/~samtregar/HTML-Template-Expr/Expr.pm>
+
+To enable, log into your list control panel and under, B<Manage Copy -&gt; Email Templates>, you should see an option, under, B<Advanced Options> titled, 
+
+B<Use the advanced templating syntax for email messages.>
+
+You'll want to enable this option and HTML::Template::Expr syntax should be enabled. 
+
+With this option enabled, you can make statements, such as this: 
+
+ Hello <!-- tmpl_var subscriber.first_name -->, 
+ 
+ <!-- tmpl_if expr="subscriber.favorite_fruit eq 'apples'" -->
+ I see you like apples!
+ <!-- tmpl_else -->
+ You don't like apples?!
+ <!-- /tmpl_if -->
+
+This will print: 
+
+ Hello John,
+ 
+ I see you like apples!
+
+If your subscriber has the field value, "first_name" set to, "John" and the, "favorite_fruit" set to, "Apples". If favorite fruit is
+set to something other than apples, this would be printed: 
+
+ Hello John,
+ 
+ You don't like apples?!
+
+=head2 Old-Style Template Tags
+
+Prior to Dada Mail 4, template tags and templates themselves used the old-style format. 
+
+Old-style template tags look like this: 
+
+ [tag]
+
+They were simply just a string, surrounded by square brackets. 
+
+We'd like to move away from that, so that syntax is now, deprecated. These types of
+tags still work, 100%. If you're upgrading, you shouldn't find any problems, B<yet>, 
+but please do not use the old-style tags in any feature templating you do. 
+
+
+=cut

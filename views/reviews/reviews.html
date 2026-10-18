@@ -1,0 +1,26 @@
+<section class="auxpage">
+    <h1 class="auxpage_header">Reviews</h1>
+    <button class="right"><a href="#!/reviews_submit">Submit a Review</a></button>
+
+    <br><br>
+    <div ng-repeat="review in reviews">
+        <div class="bold">
+            <span>{{review.name}}</span>
+            <span ng-show="review.location">({{review.location}})</span>
+        </div>
+        <div>
+            <span>Rating:&nbsp;
+                <span ng-repeat="i in getNumber(review.stars) track by $index">
+                    <img src="img/Star_solid.jpg"/>
+                </span>
+            </span>
+        </div>
+        <div>
+            <span>{{review.review}}</span>
+        </div>
+        <br><br>
+    </div>
+    <br><br>
+    <button><a href="#!/reviews_submit">Submit a Review</a></button>
+
+</section>

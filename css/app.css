@@ -1,0 +1,188 @@
+/* app css stylesheet */
+
+header, footer {
+    padding: 10px;
+    color: darkgray;
+    background-color: white;
+    clear: left;
+}
+
+@font-face {
+    font-family: "Lyle";
+    src: url(../fonts/BRUSHSCI.TTF);
+}
+
+#header_title {
+    font-family: "Lyle";
+    font-size: 6vw;
+    color: #151682;
+    vertical-align: middle;
+    left: -20px;
+}
+
+.mainpage {
+    margin-top: -20px;
+    margin-left: 140px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.auxpage {
+    margin-top: -75px;
+    margin-left: 140px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.auxpage_header {
+    margin-top: -20px;
+}
+
+.small_logo {
+    height: 80px;
+    width: 120px;
+}
+
+.cd_cover_block {
+    display: block;
+    float: left;
+    width: 150px;
+    padding: 20px;
+    text-align: center;
+}
+
+.cd_cover_image {
+    border-radius: 10px;
+    height: 150px;
+    width: 150px;
+}
+
+.cd_misc_info {
+    display: block;
+    vertical-align: top;
+    float: left;
+    width: 200px;
+}
+
+.main_page_info {
+    display: block;
+    float: left;
+    width: 75%;
+}
+
+.large {
+    font-size: 120%;
+}
+
+.red {
+    color: #B80100;
+}
+
+.green {
+    color: #0F6A1B;
+}
+
+.blue {
+    color: #151682;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #151682;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    margin-top: -20px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+nav li {
+    border-radius: 5px;
+    border: solid gray 1px;
+    padding: 10px;
+    width: 95px;
+    height: 20px;
+    text-align: right;
+    background: linear-gradient(lightgray, white, white, white);
+}
+
+table, th, td {
+    border: 1px solid darkgray;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    text-align: left;
+    background: #151682;
+    color: white;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.float_none {
+    clear:both !important;
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+}
+
+div.gallery {
+    margin: 5px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 250px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}

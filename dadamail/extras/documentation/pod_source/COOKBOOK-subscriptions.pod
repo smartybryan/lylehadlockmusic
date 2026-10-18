@@ -1,0 +1,82 @@
+=pod
+
+=head1 Subscription Cookbook
+
+=head2 How to Subscribe an Email Address to a Mailing List
+
+A challenge people face is trying to tie Dada Mail's subscription system with another system, like a checkout part of a shopping cart, boards/forum, blog or CMS software.
+
+Dada Mail has hooks into its subscribe system, that you can use by making a small perl script, that can be called from your main program. (If you app is written in Perl, an outside program may not be something you'll need to make) 
+
+Here's a very tiny script that starts the subscription process for one email address, to one list: 
+
+	#!/usr/bin/perl 
+	package subscribe_email;
+	use lib qw(./ ./DADA/perllib);
+	
+	use DADA::Config;
+	use DADA::App::Subscriptions;
+	use DADA::App::Guts;
+	use CGI;
+	use Getopt::Long;
+	
+	my $verbose = 0;
+	my $email;
+	my $list;
+	
+	GetOptions(
+	    "email=s" => \$email,
+	    "list=s"  => \$list,
+	);
+	
+	__PACKAGE__->run()
+	  unless caller();
+	
+	sub run {
+	
+	    my $q = CGI->new;
+	    $q = decode_cgi_obj($q);
+	    $q->param( 'list',  $list );
+	    $q->param( 'email', $email );
+	    $q->param( 'f',     's' );
+		
+	    my $das = DADA::App::Subscriptions->new;
+	    $das->subscribe(
+	        {
+	            -cgi_obj     => $q,
+	            -html_output => 0,
+	        }
+	    );
+	}
+
+Save this script as, C<subscribe_email.pl> and run it as a shell script, like this: 
+
+ prompt>perl ./subscribe_email.pl --list mylist --email email@example.com 
+
+This script also be called from within another script using something like Perl's, C<exec> function. 
+
+C<DADA::App::Subscriptions>'s C<subscribe> method will handle a subscription request exactly the same way the main Dada Mail program would and follow all the list settings and options you've set. For example, if the email address passed is valid and not subscribed to the mailing list already, the email address will be sent a subscription confirmation email. 
+
+=head1 Other Examples
+
+=head2 Proof of Concept SOAP example
+
+See the Proof of Concept SOAP example: 
+
+L<http://dadamailproject.com/d/README_SOAP.pod.html>
+
+for more inspiration
+
+=head2 FormMail Integration
+
+See the sourcecode to FormMail to see how we integrated Dada Mail subscription capabilities in this simple form handler:
+
+http://dadamailproject.com/d/Dada-ized_FormMail_README.pod.html
+
+=head2 TFmail Integration 
+
+See the sourcecode to TFmail to see how we integrated Dada Mail subscription capabilities in this simple form handler:
+
+http://dadamailproject.com/d/Dada-ized_TFMail_README.pod.html
+
+=cut

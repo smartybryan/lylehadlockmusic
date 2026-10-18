@@ -1,0 +1,15 @@
+<section class="auxpage">
+    <h1 class="auxpage_header">Videos</h1>
+    <br>
+
+    <div ng-repeat="video in videos">
+        <iframe width="560" height="315" ng-src="{{video.url | trusted}}"
+                frameborder="0" allow="encrypted-media"
+                allowfullscreen>
+        </iframe>
+        <br>
+        <p>{{video.description}}</p>
+        <br><br>
+    </div>
+
+</section>

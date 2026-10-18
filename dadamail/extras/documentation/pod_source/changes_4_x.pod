@@ -1,0 +1,1166 @@
+=pod
+
+=head1 Dada Mail Changelog for version 4.x.x
+
+=head1 4.3.2
+
+This release is a bugfix-only release: 
+
+=head2 Bugfixes 4.3.2
+
+=head3 The HTML Message to Text Message thingy breaks HTML::Template tags. Ugh! 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/86
+
+=head3 "Send Subscription Successful Emails is Disabled" notice shown, even if it isn't
+
+https://github.com/justingit/dada-mail/issues/closed#issue/108
+
+=head2 Changes 4.3.2
+
+There's some new documentation about upgrading from a Simple Scripts to a Regular 
+Installation of Dada Mail: 
+
+L<http://dadamailproject.com/d/upgrade_from_simple_scripts.pod.html> 
+
+=head1 4.3.1
+
+=head2 Changes 4.3.1
+
+=head3 Template Changes 4.3.1
+
+Bugs were found in a few of the templates Dada Mail uses - the following templates have small changes in them: 
+
+=over
+
+=item * dada/DADA/Template/templates/list_options_screen.tmpl
+
+=item * dada/DADA/Template/templates/list_cp_options.tmpl
+
+=item * dada/DADA/Template/templates/archive_screen.tmpl
+
+=item * $MAILING_LIST_MESSAGE_HTML
+
+=back
+
+=head3 SOAP Examples for Subscribing Included 
+
+Some SOAP proof of concept files have been included in, I<dada/extras/scripts/SOAP> 
+
+They can be read at: 
+
+L<http://dadamailproject.com/d/README_SOAP.pod.html>
+
+They include a server written in Perl and clients written in Perl and php. They are also documented in the Subscription Cookbook
+
+They are, in fact, Proof of Concepts and are not complete applications. 
+
+=head3 Plugin: mx_lookup.cgi cleaned up
+
+The B<mx_lookup.cgi> plugin has been cleaned up and documentation added. It's currently 
+listed as, B<DEPRECATED>, but will not go away, until the functionality it has is brought into 
+the core of the program. It's still a good example of how to make a simple Dada Mail plugin. 
+
+=head3 Code Cleanup
+
+github user masktos (Mark Stosberg) was kind enough to refactor a ton 
+code into Dada Mail, having to do with Modern Perl/Perl Best Practices coding. 
+Thanks, Mark! Some of the things he worked on include, 
+
+=over
+
+=item * simplifying and optimizing URI encoding/decoding
+
+=item * changing foreach() to for()
+
+=item * Adding Params::Validate, FindBin to some Dada Mail API subroutine/methods
+
+=back
+
+=head2 Bug Fixes 4.3.1
+
+=head3 Link in General FAQ to installing Dada Mail is broken
+
+https://github.com/justingit/dada-mail/issues/closed#issue/107
+
+=head3 General FAQ does not mention installer
+
+https://github.com/justingit/dada-mail/issues/closed#issue/106
+
+=head3 $ENFORCE_CLOSED_LOOP_OPT_IN cannot be overriden in the outside config file (.dada_config)
+
+https://github.com/justingit/dada-mail/issues/closed#issue/105
+
+=head3 archive_screen.tmpl misplaced <!-- /tmpl_if --> tag for <!-- tmpl_if list_settings.enable_gravatars --> leads to formatting problems
+
+https://github.com/justingit/dada-mail/issues/closed#issue/104
+
+=head3 Docs mention how to make a, "one-click" unsub link, when ALL unsub links are one-click
+
+https://github.com/justingit/dada-mail/issues/closed#issue/103
+
+=head3 Docs still mention "Adding" email addresses via the list control panel
+
+https://github.com/justingit/dada-mail/issues/closed#issue/102
+
+=head3 Archived messages for discussion lists may have member-specific unsubscribe links (reopened)
+
+https://github.com/justingit/dada-mail/issues/closed#issue/101
+
+=head3 "Send a List Invitation" screen Help Button is broken
+
+https://github.com/justingit/dada-mail/issues/closed#issue/100
+
+=head3 No tests for DADA::App::Guts::available_lists - why not? 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/73
+
+=head3 reCAPTCHA settings in, Your Mailing List -> Mailing List Options always greyed out? 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/90
+
+=head3 Requirements doc out of date
+
+https://github.com/justingit/dada-mail/issues/closed#issue/91
+
+=head3 Missing unordered list tags in $MAILING_LIST_MESSAGE_HTML template
+
+https://github.com/justingit/dada-mail/issues/closed#issue/93
+
+=head3 Dada Mail 4.3.0, FormatMessages.pm and Email Templates
+
+https://github.com/justingit/dada-mail/issues/closed#issue/92
+
+=head3 "Look Up Hostnames When Validating Email Addresses (MX Lookup)" cannot be enabled
+
+https://github.com/justingit/dada-mail/issues/closed#issue/97
+
+=head3 No .htaccess in .dada_files directory by default, when installing w/the installer
+
+https://github.com/justingit/dada-mail/issues/closed#issue/99
+
+=head1 4.3.0
+
+Installation instructions for 4.3.0 are the same as they were for 4.2.0. 
+
+=head2 Changes 4.3.0
+
+=head3 CPAN module Captcha::reCAPTCHA upgraded from v.92 to v.94
+
+=head3 Twitter Support Removed
+
+Twitter turned off support for the, "Basic" authorization API they were using, 
+in conjunction with oAuth (the new standard). oAuth isn't very compatible with 
+Dada Mail, so we had to pull support for it. 
+
+=head3 Habeas Watermark Support Removed
+
+The Habeas Watermark isn't really used, anymore, anyways. 
+
+=head2 Features 4.3.0
+
+=head3 Dada Bridge: Ignore/Send a Rejection message for Spam Messages
+
+It's now possible to either ignore messages seen as spam, or send a rejection message. 
+
+=head3 Unsubscription Confirmations: Email Notice
+
+If someone attempts to unsubscribe an email address that isn't actually 
+subscribed, a notification will be sent, via email to the address, instead of having 
+a notice in the browser. This is to keep the privacy of the subscriber. 
+
+This behavior can be enabled/disabled in the list control panel, in, 
+
+I<Your Mailing List  - Mailing List Options> 
+
+Under the option, 
+
+B<If someone not currently subscribed to your mailing list attempts to unsubscribe, send a, "You are not Subscribed!" message via email, instead of showing this error in their web browser.>
+
+It is B<disabled> by default.
+
+=head3 Closed-Loop Opt-In Subscription now Enforced by default
+
+By default, the following features in Dada Mail are B<enabled>: 
+
+=over 
+
+=item * Closed-Loop Opt-In Subscriptions
+
+=back 
+
+By default, the following features in Dada Mail are I<disabled>: 
+
+=over
+
+=item * Subscribing Address via the List Control Panel without confirmation
+
+(Invitations are still very much supported)
+
+=item * Subscribing/Inviting Black Listed Addresses
+
+(Black Listed subscribers may still subscribe themselves)
+
+=item * Skipping the confirmation step for subscriptions if a user is logged into their profile
+
+=back
+
+These are options are set as such to closely follow Closed-Loop Opt-In Subscribing (meaning, a subscriber has to confirm a subscription themselves), 
+which we think is the best way to run a email mailing list. 
+
+The options to change these defaults that used to be available have been B<REMOVED> from the List Control Panel.  
+You may still reveal these options by setting the Config variable, C<$ENFORCE_CLOSED_LOOP_OPT_IN> to, C<0>. We do not suggest this and we consider the above options B<DEPRECATED>. 
+
+=head3 Email Message Templates Scanned for Correct Tags, Fixed if Missing. 
+
+To make sure the subscription/removal systems in Dada Mail work correctly, Dada Mail will 
+scan the user-editable email message templates, before it sends them out, to make sure they have the right tags, 
+to perform the right actions. Here's a list of what tags are looked for, in which templates: 
+
+=over
+
+=item * List Subscription Confirmation Link
+
+=over
+
+=item * Subscription Confirmation Email
+
+=item * List Invitation Message (PlainText) 
+
+=item * List Invitation Message (HTML) 
+
+=back
+
+=item * List Unsubscribe Link 
+
+=over
+
+=item * Mailing List Message (PlainText) 
+
+=item * Mailing List Message (HTML) 
+
+=back
+
+=item * List Unsubscribe/Removal Confirmation Link 
+
+=over
+
+=item * Unsubscription Confirmation Email
+
+=back
+
+=back
+
+=head2 Config variable changes
+
+=head3 $ADMIN_MENU 
+
+The menu labled, "Add" under, "Manage Subscribers" has been change. The line used to read, 
+
+	{-Title      => 'Add',
+
+and now, reads: 
+
+	{-Title      => 'Invite<!-- tmpl_if list_settings.enable_mass_subscribe -->/Add<!-- /tmpl_if -->',
+
+Although you may want to change this line if you're upgrade from v4.x.x to v4.3.0, you won't be required to
+
+=head3 $MAILlING_LIST_MESSAGE
+
+The variable, C<$MAILlING_LIST_MESSAGE> has been renamed to, C<$MAILING_LIST_MESSAGE>.
+You will need to rename this varialbe in your C<.dada_config> file, if you are currently using it. 
+
+Dada Mail will also alert the user of the missing tags in the List Control Panel, I<Appearance and Templates - Email Message Templates>
+ 
+=head2 Bug Fixes 4.3.0
+
+=head3 uncompress_dada.cgi script will return, "Server Error 500", if it can't find the .tar.gz file to uncompress
+
+https://github.com/justingit/dada-mail/issues/closed#issue/89
+
+=head3 $MAILlING_LIST_MESSAGE and, $MAILlING_LIST_MESSAGE_HTML variables speled incorrectly? 
+
+https://github.com/justingit/dada-mail/issues#issue/87
+
+=head3 List Page is NOT have email address protection 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/84
+
+=head3 No, "Are you sure?!" popup alert when clicking the, "remove all subscribers" button
+
+https://github.com/justingit/dada-mail/issues/closed#issue/82
+
+=head3 No, "Are you sure?!" popup alert when clicking the, "purge all archives?" button 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/83
+
+=head3 available_lists with, "-In_Order" param doesn't. 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/71
+
+=head3 $PROGRAM_ERROR_LOG example in Config.pm is missing first, "/" in path
+
+https://github.com/justingit/dada-mail/issues/closed#issue/72
+
+=head3 Some Config.pm variables not override-able in outside config file (.dada_config) 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/74
+
+=head3 inconstent naming of url-parameter, error/errors
+
+https://github.com/justingit/dada-mail/issues/closed#issue/79
+
+=head3 '=' added to the end of some plaintext mailings in quoted-printable encoding
+
+https://github.com/justingit/dada-mail/issues/closed#issue/78
+
+=head3 Can't delete an attachment in an archived message? 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/75
+
+=head3 Changes to Profile Subscriber Fields does not clear cache
+
+https://github.com/justingit/dada-mail/issues/closed#issue/80
+
+=head3 links with Dada Mail tags in them will break, when using, "Send a Webpage" 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/81
+
+=head3 multiple_subscribe.cgi does not use email notification for "already subscribed" 
+
+https://github.com/justingit/dada-mail/issues/closed#issue/77
+
+=head3 Unsubscribe requests should have similar "notify via email, rather than web UI" functionality
+
+https://github.com/justingit/dada-mail/issues/closed#issue/76
+
+=head3 How's Twitter Support?
+
+https://github.com/justingit/dada-mail/issues/issue/66/#comment_546769
+
+=head3 Habeas Watermark Not Really used Anymore?
+
+https://github.com/justingit/dada-mail/issues/issue/65/#comment_546770
+
+=head1 4.2.1
+
+=head2 Changes 4.2.1
+
+This is basically a bug-fix only release. But of note: 
+
+=over
+
+=item * Peppered through some of the directories are .htaccess files, to stop unwanted
+access to these directories. This is simply a safegaurd and shouldn't really
+be seen as a security issue. 
+
+=back
+
+=head2 Bug Fixes 4.2.1
+
+=head3 "Setup Info" screen incorrectly determines a installation as, "Basic" if the $PROGRAM_CONFIG_FILE_DIR is set to, "auto"
+
+http://github.com/justingit/dada-mail/issues/closed#issue/62
+
+=head3 Reply-To in %EMAIL_HEADERS will never be used
+
+http://github.com/justingit/dada-mail/issues/closed#issue/64
+
+=head2 KNOWN ISSUES 4.2.1
+
+=head3 Twitter Support
+
+Twitter Support is currently not working, as the type of authorization Dada
+Mail was utilising (Basic) has been dropped by Twitter in favor of a more substantial
+authentication scheme called oAuth. 
+
+http://github.com/justingit/dada-mail/issues#issue/66
+
+=head3 Habeas Watermark 
+
+The Habeas Watermark isn't really used anymore, Habeas The Company was bought by a
+different company, that has a vastly different scheme, other than attempting to 
+legally go after unauthorized use of their copyright material. The new system 
+requires different headers to be present, which Dada Mail does not currently 
+support. We'll see about supporting them, in the future. 
+
+=head1 4.2.0
+
+=head2 Changes 4.2.0
+
+=head3 Dada Mail Installer
+
+Dada Mail now comes with an installer - manually setting up and configuring
+Dada Mail is now longer needed. Heavens be praised. 
+
+Dada Installer directions may be found at: 
+
+L<http://dadamailproject.com/support/documentation/manually_install_dada_mail.pod.html>
+
+Upgrade instructions may be found at: 
+
+L<http://dadamailproject.com/support/documentation/upgrade_dada_mail.pod.html>
+
+The installar script may also be run via the command line - instructions can be 
+found on how to use it, by invoking the script with the, C<--help> flag, 
+
+ shell>./installer.cgi --help
+
+=head4 Installation Terminology Changes
+
+The, "Advanced" Installation of Dada Mail is just known as a, "Manual" installation
+of Dada Mail.
+
+The Dada Mail Installer will install Dada Mail the same way as one would install 
+Dada Mail manually. Directions may be found here: 
+
+L<http://dadamailproject.com/support/documentation/manually_install_dada_mail.pod.html>
+
+The, "Basic" Installation method is not recommended or supported. If upgrading from a, "Basic" installation, 
+it's recommended to move to a more contemporary installation setup: 
+
+L<http://dadamailproject.com/support/documentation/basic_two_contemporary_installation.pod.html>
+
+=head2 Setup Info Screen 
+
+The, "Setup Info" Screen, that you can access using this URL: 
+
+L<http://example.com/cgi-bin/dada/mail.cgi?f=setup_info>
+
+has been completely rewritten. In light of the Installer, it does not attempt to help 
+configure Dada Mail for you, but will tell you what type of installation it recognizes, 
+ will present to you the entire contents of your, C<dada/DADA/Config.pm> file as well as your C<.dada_config> 
+file and will show you how all config variables are being interpreted. 
+
+=head3 $ADMIN_MENU Changes 
+
+The $ADMIN_MENU variable has been changed to add the, "Dada Mail Setup Info" menu item. It looks like this: 
+
+	{-Title      => '<!-- tmpl_var PROGRAM_NAME --> Setup Info',
+	 -Title_URL  => "$S_PROGRAM_URL?f=setup_info",
+	 -Function   => 'setup_info',
+	 -Activated  => 1,
+	},
+
+=head3 MySQL 4-specific schema REMOVED
+
+The MySQL schema shipped for Dada Mail, specifically for v4 of MySQL has been removed. 
+The reason for the schema was more because of UTF-8 incompatibilities, rather 
+than problems with this version of MySQL v4. 
+
+
+=head2 Bug Fixes
+
+=head3 Profile Email Addresses aren't normalized for case sensitivity
+
+http://github.com/justingit/dada-mail/issues#issue/60
+
+=head3 PlainText Backend - subscribed addresses with a, ' (single quote) will disrupt subscriptions
+
+http://github.com/justingit/dada-mail/issues/issue/61
+
+
+=head1 4.1.0
+
+=head2 Changes 4.1.0
+
+=head3 Screen Cache Working Again, Enabled by Default
+
+The Screen Cache API allows Dada Mail to save fully-rendered Dada Mail screens 
+that are commonly viewed. 
+
+=head4 Enabled by Default
+
+The Screen Cache is enabled by default, via setting the C<$SCREEN_CACHE> config variable, to C<1> 
+
+=head4 Changes to the $ADMIN_MENU
+
+A new entry under the, "Plugins" heading has been added to the $ADMIN_MENU variable in the I<Config.pm>, 
+I<dada/DADA/Template/templates/example_dada_config.tmpl> and, I<dada/extras/examples/example_dada_config.txt>
+
+=head4 More information: 
+
+=over
+
+=item * Feature Overview: 
+
+L<http://dadamailproject.com/support/documentation/features-screen_cache.pod.html>
+
+=item * screen_cache.cgi Plugin: 
+
+L<http://dadamailproject.com/support/documentation/features-screen_cache.cgi.html>
+
+=back
+
+=head3 Optimizations in Mass Mailing Speeds
+
+Small Tweaks have been made to the Mass Mailing code in Dada Mail through code profiling
+ which should positively impact Mass Mailing Speeds, upwards of .10 to .25 seconds 
+faster, per message. 
+
+=head3 Social Bookmarking/Link Sharing Buttons for archive screens Enabled by Default
+
+Older, unused social bookmarking sites have been removed (as well as Fark, because,well...)
+
+The Facebook link sharing button has also been added. 
+
+=head2 Bug Fixes 4.1.0
+
+=head3 Missing closing, "</ul>" HTML tag in profile_update_email_confirm.tmpl
+
+http://github.com/justingit/dada-mail/issues/closed#issue/57
+
+=head3 Profile email updates cannot happen on closed lists
+
+http://github.com/justingit/dada-mail/issues/closed#issue/56
+
+=head3 Unpaired divs in list_page_screen.tmpl
+
+http://github.com/justingit/dada-mail/issues/closed#issue/55
+
+=head3 Can't view archived attachments
+
+http://github.com/justingit/dada-mail/issues#issue/54
+
+=head3 Slashes in pin for subscribe/unsubsribe links invaidates pin
+
+http://github.com/justingit/dada-mail/issues/closed#issue/48
+
+=head3 "Send Subscribers to List Owner" function not very friendly to use 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/49
+
+=head1 4.0.5
+
+=head2 Changes 4.0.5
+
+=head3 POP3 and SMTP Passwords Saved in List Settings 
+
+I<This is not a security bug/issue/notice - rather, this is a bug that was introduced
+with the full UTF-8 support.> 
+
+The binary-in-nature encrypted passwords saved by Dada Mail in the List Settings 
+table/files in Dada Mail may have become unusable/corrupted with version 4.0.3
+and/or 4.0.4 of Dada Mail. 
+
+If you are having trouble/an impossible time using any of the POP3 or SMTP connection
+stuff in Dada Mail, including Dada Bridge, Mystery Girl (Bounce Handler) or POP-before-SMTP
+and/or SMTP SASL authentication - or even the Twitter stuff, you may be bitten by this bug. 
+4.0.5 should provide a fix for this problem, B<BUT> (big but), 4.0.5 could potentialy I<break any 
+currently stored passwords>. 
+
+The fix will be to simply re-save the correct password, I<after> you've upgraded to 
+4.0.5. 
+
+New users of Dada Mail will not be affected by this problem.  
+
+This problem B<does not impact> your List Password, or the Dada Mail Root Password - 
+both of which are saved in a one-way encryption, that is separate from the way 
+POP3/SMTP passwords are saved in Dada Mail. 
+
+=head2 Bug Fixes 4.0.5
+
+=head3 Subscriptions are not logged in the usage log. 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/37
+
+=head3 Subscribers can be subscribed more than once to the black list
+
+http://github.com/justingit/dada-mail/issues/closed#issue/38
+
+=head3 Dada Bridge sending broken if, "Strip attachments that have the following file ending or mime-type:" is enabled
+
+http://github.com/justingit/dada-mail/issues/closed#issue/41
+
+=head3 "Soft_Max_Size_Of_Any_Message" Dada Bridge plugin var not in "example_dada_config.txt" or the .dada_config semi-auto install template
+
+http://github.com/justingit/dada-mail/issues/closed#issue/42
+
+=head3 No List-Unsubscribe header in some email messages
+
+http://github.com/justingit/dada-mail/issues/closed#issue/43
+
+=head3 Can't call method "prepare" on an undefined value at /DADA/Profile.pm line 59"
+
+http://github.com/justingit/dada-mail/issues/closed#issue/44
+
+=head3 Dada Bridge doesn't give friendly message about info being saved when you save info
+
+http://github.com/justingit/dada-mail/issues/closed#issue/47
+
+=head3 POP3/SMTP passwords corrupted? 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/45
+
+=head3 Archived messages for discussion lists may have member-specific unsubscribe links
+
+http://github.com/justingit/dada-mail/issues/closed#issue/46
+
+=head3 Send a Webpage gives unhelpful error if you enter a wrong URL of a missing page
+
+http://github.com/justingit/dada-mail/issues/closed#issue/17
+
+=head3 4.0.1 Open discussion lists broken
+
+http://github.com/justingit/dada-mail/issues/closed#issue/13
+
+This bug wasn't actually closed with this release, but from a previous release. It has
+though, been confirmed to be closed with this release. 
+
+=head1 4.0.4
+
+=head2 Changes 4.0.4
+
+=head3 UTF-8 Issues
+
+=head4 MySQL, PostgreSQL, SQLite schema changes
+
+Some compatibility issues cropped up, regarding UTF-8/unicode character set/encoding 
+in re: to the SQL schemas. The schemas for all supported SQL backends have been 
+modified to better work, mostly by changing fields with type, C<text(320)>, to type, 
+C<varchar(80)>. Other notes have been added to the UTF-8 FAQ. 
+
+=head4 dada3_to_dada4_sql.pl changes
+
+Along with looking into changing the default schema in Dada Mail, the v3 to v4
+migration script will now make the necessary schema and character set changes. 
+
+The character encoding changes and SQL schema changes could potentially be desctructive, 
+so we do, in fact, highly encourage you to make a backup of the entire database, 
+before running the migration tool. Most notably, the character encoding change 
+does not work perfectly. If your data contains a lot of non-Latin1 characters, we'd 
+highly suggest you do your own ASCII/Latin1 to UTF-8 migration, before upgrading 
+your Dada Mail. 
+
+If you are running a verion of Dada Mail 4.0.0 to 4.0.3, you'll still need to 
+make those schema changes manually if you're having trouble (exactly what to do, 
+including example SQL is located in the UTF-8 FAQ). 
+
+
+=head2 Bug Fixes 4.0.4
+
+=head3 Dada Bridge always reports that IO::Socket::SSL isn't available
+
+http://github.com/justingit/dada-mail/issues/#issue/36
+
+=head3 "Use Secure Sockets Layer (SSL)" option sometimes not available, even though appropriate CPAN module installed
+
+http://github.com/justingit/dada-mail/issues/#issue/35
+
+=head3 Dada Bridge will always say that SpamAssassin isn't available
+
+http://github.com/justingit/dada-mail/issues/closed#issue/34
+
+=head3 Moderation broken on Dada Bridge
+
+http://github.com/justingit/dada-mail/issues/closed#issue/33
+
+=head3 Fallback Variables aren't used. 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/32
+
+=head3 "Save, Then Test Your Sending Preferences..." button broken in Sending Preferences
+
+http://github.com/justingit/dada-mail/issues/closed#issue/31
+
+=head2 CPAN Modules 4.0.4
+
+=over
+
+=item * CGI::Sessoion upgraded to: 4.42
+
+CGI::Session handles all session management in Dada Mail. 
+
+=item * List-Utils Scalar-Utils
+
+The CPAN perl modules, Scalar::Util and List::Util are included with Dada Mail, but aren't actively used (and are probably outdated),
+ so that any server-wide installed versions will be used, instead. This is because the XS versions of these modules are needed for POP/SMTP 
+SSL connections and having these usable by default, breaks SSL connections. The directories, 
+
+ dada/DADA/perllib/List
+
+and, 
+
+ dada/DADA/perllib/Scalar
+
+have been renamed, 
+
+ dada/DADA/perllib/List-remove_to_install
+
+and, 
+
+ dada/DADA/perllib/Scalar-remove_to_install
+
+renaming them back to their original name will make them, "active"
+
+=back
+
+
+=head1 4.0.3
+
+=head2 Changes 4.0.3
+
+=head3 Unicode/UTF-8 Work 
+
+We have worked very, very hard to get Dada Mail working with UTF-8/Unicode.
+
+We think we did a pretty good job and you'll have a most amazing experience
+ when comparing this version to any previous version of Dada Mail (ever), but 
+there may be tiny things still to work out. 
+
+We need to know about them, don't be shy! 
+
+=head4 SQL table schema changes!
+
+People who upgrade to 4.0.3 (and any version afterwards, until things change!) 
+should note that the MySQL and PostgreSQL Table Schemas have changed! 
+
+You may need to update your own tables, to support UTF-8 (if they aren't 
+already in that encoding).
+
+=head4 See Also:
+
+If you're upgrading, please read over the updated UTF-8/Unicode FAQ: 
+
+http://dadamailproject.com/support/documentation/features-UTF-8.pod.html
+
+If you're doing a new install, there's nothing you need to know, Dada Mail should
+work well out of the box in re: to UTF-8/Unicode stuff. 
+
+=head3 Changes to Default List Settings
+
+We've changed a few of the default list settings, hopefully so that everyone 
+has a more pleasant experience, right off the bat: 
+
+=head4 Activate Black List
+
+We've enabled the setting to active the Black List, by default. 
+
+We're also enabling the below settings: 
+
+=over
+
+=item * Move Unsubscribed Subscribers Automatically to the Black List
+
+=item * Continue to Allow Subscriptions From Subscribers of Black Listed Addresses
+
+=back
+
+You still have the option to change new lists to the previous behavior and already created lists 
+will have their previous behavior, if Black List Settings have already been edited.  
+
+=head3 Print List-Specific Headers option Removed
+
+The option, B<Print List-Specific Headers> has been removed from, I<Mail Sending -Advanced Sending Preferences> 
+has been removed, I<but> the functionality has B<not>. All 
+mailing list messages will have these headers. 
+
+=head3 Send Unsubscription Confirmation Emails (Closed-Loop Opt-Out) - disabled by default
+
+B<Send Unsubscription Confirmation Emails (Closed-Loop Opt-Out)> has been disabled by default (you can still enable it) 
+
+This option, when enabled, requires that when someone wants to unsubscribe, 
+they have to confirm this unsubscription by clicking on the unsubscription confirmation link
+in a URL sent their subscribed address. 
+
+When disabled (the new default), they simply have to fill out the subscribe/unsubscribe form. 
+
+=head2 Subscription and Unsubscription links now include an Email Address
+
+When available, both the Subscription and Unsubscription links will have the potential subscriber's
+(or unsubscriber's) email address in the link itself, so that the user does not have to do the two-step
+of first following the link and then typing in their email address. 
+
+These links are created per-subscriber (or potential sub/unsub), when you use the: 
+
+ <!-- tmpl_var list_subscribe_link -->
+
+or, 
+
+ <!-- tmpl_var list_unsubscribe_link --> 
+
+tags. Previously, these tags only provided a link to the subscription/unsubscription form, 
+without the email address embedded within the link itself. There is no way to revert this behaviour, 
+but you can still roll your own links, like this: 
+
+Subscription Link: 
+
+ <!-- tmpl_var PROGRAM_URL -->/s/<!-- tmpl_var list_settings.list --> 
+
+Unsubscription Link: 
+
+ <!-- tmpl_var PROGRAM_URL -->/u/<!-- tmpl_var list_settings.list -->
+
+=head2 Unsubscription Links Now Mandatory for Mass Mailing Messages
+
+Dada Mail will now do a quick check to make sure that there is a Dada Mail 
+Unsubscription link in your mass mailing messages, before sending them out. 
+
+If one is not found, one will be automatically appended to the end of your message. 
+
+It will not be very fancy. 
+
+We suggest that you make sure that you have a real, valid, Dada Mail unsubscription link
+in your Mailing List Messages. 
+
+=head2 Bug Fixes 4.0.3
+
+=head3 Send newest archived message may have outdated header information
+
+http://github.com/justingit/dada-mail/issues/issue/30
+
+=head3 pop3 username/password not saved when "Save, Then Test..." button pressed in Sending Preferences
+
+http://github.com/justingit/dada-mail/issues/issue/29
+
+=head3 Beatitude: Months are listed out of order  
+
+http://github.com/justingit/dada-mail/issues/issue/28
+
+=head3 profile field names can contain more than just ascii letters, numbers and underscores
+
+http://github.com/justingit/dada-mail/issues/issue/27
+
+=head3 list short names can contain more than just ascii letters, numbers and underscores
+
+http://github.com/justingit/dada-mail/issues/issue/26
+
+=head3 Beatitude:  Scheduled List Not in Any Useable Order?
+
+http://github.com/justingit/dada-mail/issues/issue/16
+
+=head3 Dada Bridge: Spam Assassin Level Picker isn't available
+
+http://github.com/justingit/dada-mail/issues/issue/21
+
+=head3 Sending Preferences don't correctly state if you can use Use Secure Sockets Layer (SSL) for POP-before-SMTP
+
+http://github.com/justingit/dada-mail/issues/issue/24
+
+=head3 Double Subscriptions when using List Invitation
+
+http://github.com/justingit/dada-mail/issues/issue/23
+
+=head3 Archived messages not templated out in publicly displayed archives
+
+http://github.com/justingit/dada-mail/issues/issue/20
+
+=head3  Link to edit subscriber information broken when using the search  
+
+http://github.com/justingit/dada-mail/issues/issue/19
+
+=head3 Unsubsciption Notice to List Owner doesn't have subscriber (profile) fields
+
+http://github.com/justingit/dada-mail/issues/issue/18
+
+=head3 Disabled Menu items return server error when using the, "Classic" session type
+
+http://github.com/justingit/dada-mail/issues/issue/15
+
+=head1 4.0.2
+
+=head2 Changes 4.0.2
+
+=head3 Dada Bridge: "Allow Open Discussion List" option always viewable
+
+For whatever reason, the, "Allow Open Discussion List" option wasn't viewable, until
+you first enabled discussion lists. It will now *always* be viewable, as long as the 
+Plugin Config Param, C<Allow_Open_Discussion_List> is set to, C<1>
+
+=head3 Dada Bridge: New Plugin Config Param: Check_Multiple_From_Addresses
+
+A new Plugin Config Paramater called, C<Check_Multiple_From_Addresses> has been added
+and has a default value of, C<1>. When enabled, messages that have more than one 
+sender aren't supported by Dada Bridge and these messages will be ignored. 
+
+Set this paramater to, C<0> to revert to the previous behavior. 
+
+=head3 Mail Sending - "broken pipe" catch removed
+
+Dada Mail had a very simple test to make sure mail using the sendmail command was successful, 
+by looking at any error messages created from sending mail this way. If a, "broken pipe" 
+message was found while sending a mass mailing, a mass mailing would be stopped, 
+and would be picked up and sending would be attempted starting at the same address
+that gave the error. The complete logged error may look like this: 
+
+	[Mon Jan  4 16:40:08 2010] mail.cgi: Pro Dada 4.0.1 Warning: 
+	[Mon Jan  4 16:40:08 2010] mail.cgi:                          didn't close pipe to '|/usr/sbin/sendmail -t -fbounces@example.com' while 
+	[Mon Jan  4 16:40:08 2010] mail.cgi:                          attempting to send a message to: '"My Mailing List" <me@example.com> because:' Broken pipe at ..//DADA/MailingList/Schedules.pm line 808
+	[Mon Jan  4 16:40:08 2010] mail.cgi: Broken Pipe error! returning -1 - Mass Mailing should be exit()ed! at ..//DADA/MailingList/Schedules.pm line 808
+	[Mon Jan  4 16:40:08 2010] mail.cgi: [listshortname]  Mailout:<20100104164007.54315974@nicky510.com> Bailing out of Mailing for now - last message was unable to be sent! exit()ing! at ..//DADA/MailingList/Schedules.pm line 808
+
+This behavior is problematic, since the, "broken pipe" error can happen, even 
+if a message (or part of a message) is actually sent. Sometimes this happens if you 
+have a message that contains a dot by itself on one line, like this: 
+
+ .
+
+If this is problematic to you (messages being cut off because of a lone dot on one line) 
+and you're using the sendmail command to send messages, consider changing the C<$MAIL_SETTINGS> 
+and, C<$MASS_MAIL_SETTINGS> Config variables to include the, C<-i> flag, like this: 
+
+ $MAIL_SETTINGS      = "|$MAILPROG -t -i";
+ $MASS_MAIL_SETTINGS = "|$MAILPROG -t -i";
+
+=head2 Bug Fixes 4.0.2
+
+=head3 confirmation pins with '/' as the first character break the confirmation process
+
+http://github.com/justingit/dada-mail/issues/closed/#issue/6
+
+=head3 Dada Bridge: "Deliver a Copy" isn't working
+
+http://github.com/justingit/dada-mail/issues/closed#issue/10
+
+=head3 pop3_username paramater not passed to sending_preferences.tmpl
+
+http://github.com/justingit/dada-mail/issues/closed#issue/12
+
+=head3 Dada Bridge: From: header validation can be spoofed
+
+http://github.com/justingit/dada-mail/issues/closed#issue/11
+
+=head3 Use One SMTP Connection per Batch (Experimental) unsaveable? 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/14
+
+=head3 
+
+
+
+=head1 4.0.1
+
+=head2 Changes 4.0.1
+
+=head3 New Documentation
+
+The following topics were added to the documentation: 
+
+=over
+
+=item * Converting from Default to SQL Backend
+
+http://dadamailproject.com/support/documentation/FAQ-default_2_SQL_backend.pod.html
+
+=item * Converting from a Basic to Contemporary Installation
+
+http://dadamailproject.com/support/documentation/basic_two_contemporary_installation.pod.html
+
+=back
+
+=head3 New MySQL 4 Specific Schema
+
+A MySQL Schema specifically for MySQL 4 is now shipped with Dada Mail at: 
+
+I<dada/extras/SQL/mysql4_schema.sql>
+
+=head3 DB Backup to SQL List Settings import script added
+
+Although not heavily documented (yet), a DB Backup to SQL script has been added to the distribution at: 
+
+I<dada/extras/scripts/dada_settings_backup_to_sql.pl> 
+
+=head3 Misc. Changes
+
+=over
+
+=item * New List Screen
+
+The, New List Screen has been giving minor formatting tweaks. 
+
+=item * Caching for DADA::ProfileFieldsManager
+
+Some work has been done to speed up DADA::ProfileFieldsManager by caching. 
+
+=back
+
+=head2 Bug Fixes 4.0.1
+
+=head3 Use Secure Sockets Layer (SSL) cannot be checked in the Sending 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/1
+
+=head3 "List Password Reset" email message cannot be over-rided
+
+http://github.com/justingit/dada-mail/issues/closed#issue/2
+
+=head3 MySQL schema isn't compatible with MySQL 4
+
+http://github.com/justingit/dada-mail/issues/closed#issue/4
+
+=head3 Bounce Message reports that put email addresses in brackets <> can't be parsed? 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/5
+
+=head3 Wrong version numbers in 3.x to 4.x migration assistant 
+
+http://github.com/justingit/dada-mail/issues/closed#issue/7
+
+=head3 parse_for_windows_live suboutine is broken
+
+http://github.com/justingit/dada-mail/issues/closed#issue/8
+
+=head3 SQL Backend Clickthrough Tracker still requires a DBM package
+
+http://github.com/justingit/dada-mail/issues/closed#issue/9
+
+=head1 4.0.0
+
+=head2 Changes 4.0.0
+
+=head2 4.0.0 Features
+
+=over
+
+=item * Multiple List Sending
+
+Support has be re-introduced to allow Multiple List Sending. See the separate docs on this feature: 
+
+L<http://dadamailproject.com/support/documentation/feature-multiple_list_sending.pod.html>
+
+=item *  Subscriber Profiles
+
+Please see the docs specifically about Dada Mail Subscriber Profiles:
+
+L<http://dadamailproject.com/support/documentation/feature-profiles.pod.html>
+
+=item *  Subscriber Profile Field Labels
+
+You can now have a, "Label" to your Subscriber Profile Field. A label is what's 
+visibly shown and is not now created from the field's name.
+
+=item * Subscription Approval System (Experimental) 
+
+You can now have an, "open to all to subscribe" mailing list, that still requires approval from the list owner. 
+
+Please see the docs specifically about this new feature: 
+
+L<http://dadamailproject.com/support/documentation/features-subscription_approval.pod.html>
+
+=item * Slightly better UTF-8 support. 
+
+This version of Dada Mail is currently shipped with all charsets and encodings to, "UTF-8", but Dada Mail itself is far from support this character set completely. 
+
+This is because it is hard.
+
+Please see the docs specifically about this new feature: 
+
+L<http://dadamailproject.com/support/documentation/features-UTF-8.pod.html>
+
+=item * Twitter Support
+
+Yup. Dada Mail can Tweet. More information: 
+
+L<http://dadamailproject.com/support/documentation/features-twitter_support.pod.html>
+
+=item * CKeditor Support (Experimental) 
+
+We're experimenting with bringing CKeditor support to Dada Mail. Please see the embedded Config.pm docs about this: 
+
+L<http://dadamailproject.com/support/documentation/Config.pm.html#ckeditor_integration____ckeditor_url__experimental__>
+
+=item * Mass Mailings keep their own log
+
+This means, that anything about the mass mailing is logged for that specific mass mailing - 
+this should hopefully make debugging a little bit easier. 
+
+=item * View the Mass Mailing Log from the Mailing Monitor
+
+There's a new link entitled, "Open Mass Mailing Log in a New Window -> "
+
+This functionality is currently extremely rough, but is a pretty easy way to see what, in fact, is going on. 
+
+=item * Slightly Smarter Error Handling for failing sendmail mailings
+
+We've started catching sendmail errors and, if we find an error, we'll exit out of the 
+sending process, for the message to be automatically picked up and the last email 
+that had a problem, to be tried again. It's currently not perfect, but it's a very small 
+step forward.
+
+=item * Clone Settings
+
+You can now clone the settings from one list, to another list, in the, "Create a New List" screen. 
+
+=item * Remove All Subscribers
+
+You can now Remove all subscribers at once in the, I<Manage List - View Subscribers> screen. 
+
+=item * prototype.js/Scriptalicious Support
+
+For the most part, AJAX stuff in Dada Mail has been replaced by the prototype.js 
+and Scriptalicious Javascript Libraries. 
+
+=item * Black List Matching
+
+If it wasn't clear or official before, it should be now:
+
+The black list matching does not work with matching strings, but will only work to 
+match the user or domain of an email address or the entire email address. These are valid black list entries: 
+
+=over
+
+=item * matchthis@
+
+=item * @matchthis
+
+=item * matchthis 
+
+=item * matchthis@example.com
+
+=back
+
+
+=item * Plugins Beatitude - Fetch message from URL has same options as, "Send a Webpage" 
+
+Mostly meaning, you can embed images within the email message itself. 
+
+=item * Plugins Mystery Girl
+
+You can now specify the Port Number of the POP3 mail server
+
+=item * Plugins - Dada Bridge
+
+Simple moderation support is included, to Authorized to moderate messages. 
+
+=item * Plugins - Clickthrough Tracker
+
+The Clickthrough Tracker now has a new SQL backend option for the URL redirect list. 
+
+The log is still in PlainText. 
+
+=item * Extensions - Update Subscriptions - REMOVED
+
+The update_subscriptions.cgi extension has been removed, as its features have been superceded by the Dada Profiles
+feature. And then some. 
+
+=back
+
+=head1 CPAN Perl Libraries 
+
+The CPAN Perl Libraries needed for Dada Mail are now being saved within the 
+Git Repository of Dada Mail. We don't know if this is the greatest idea, since we don't 
+really plan on making changes to this modules. But, we're doing it. If any problems 
+occur, please report!
+
+
+=head1 API
+
+There are many new modules in Dada Mail's backend, including: 
+
+=over
+
+=item * DADA::Profile
+
+=item * DADA::Profile::Fields
+
+=item * DADA::Profile::Session
+
+=item * DADA::ProfileFieldsManager
+
+=item * DADA::MailingList::Subscriber
+
+=item * DADA::MailingList::Subscriber::Validate
+
+=back
+
+=cut
