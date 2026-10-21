@@ -9,7 +9,6 @@ angular.module('mainApp.reviews_submit', ['ngRoute'])
         });
     }])
 
-    .controller('ReviewsSubmitCtrl', ['$rootScope', '$scope', function ($rootScope, $scope) {
-        $rootScope.main_header = false;
+    .controller('ReviewsSubmitCtrl', ['$scope', function ($scope) {
 
     }]);

@@ -9,8 +9,7 @@ angular.module('mainApp.reviews', ['ngRoute'])
         });
     }])
 
-    .controller('ReviewsCtrl', ['$rootScope', '$scope', function ($rootScope, $scope) {
-        $rootScope.main_header = false;
+    .controller('ReviewsCtrl', ['$scope', function ($scope) {
 
         // used to return an array with num size for ng-repeat
         $scope.getNumber = function(num) {

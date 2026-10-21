@@ -9,6 +9,5 @@ angular.module('mainApp.bio', ['ngRoute'])
   });
 }])
 
-.controller('BioCtrl', ['$rootScope', function($rootScope) {
-  $rootScope.main_header = false;
+.controller('BioCtrl', [function() {
 }]);

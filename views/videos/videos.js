@@ -9,8 +9,7 @@ angular.module('mainApp.videos', ['ngRoute'])
   });
 }])
 
-.controller('VideosCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
-  $rootScope.main_header = false;
+.controller('VideosCtrl', ['$scope', function($scope) {
 
   $scope.videos = [
     {

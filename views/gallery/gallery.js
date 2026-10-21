@@ -9,7 +9,6 @@ angular.module('mainApp.gallery', ['ngRoute'])
   });
 }])
 
-.controller('GalleryCtrl', ['$rootScope','$scope','galleries', function($rootScope,$scope,galleries) {
-  $rootScope.main_header = false;
+.controller('GalleryCtrl', ['$scope','galleries', function($scope,galleries) {
   $scope.galleries = galleries;
 }]);

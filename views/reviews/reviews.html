@@ -1,26 +1,23 @@
-<section class="auxpage">
-    <h1 class="auxpage_header">Reviews</h1>
-    <button class="right"><a href="#!/reviews_submit">Submit a Review</a></button>
-
-    <br><br>
-    <div ng-repeat="review in reviews">
-        <div class="bold">
-            <span>{{review.name}}</span>
-            <span ng-show="review.location">({{review.location}})</span>
-        </div>
-        <div>
-            <span>Rating:&nbsp;
-                <span ng-repeat="i in getNumber(review.stars) track by $index">
-                    <img src="img/Star_solid.jpg"/>
-                </span>
-            </span>
-        </div>
-        <div>
-            <span>{{review.review}}</span>
-        </div>
-        <br><br>
+<section class="page auxpage">
+    <div class="page-head">
+        <h1 class="page-title">Reviews</h1>
+        <a class="btn" href="#!/reviews_submit"><i class="fa fa-pencil"></i> Submit a Review</a>
     </div>
-    <br><br>
-    <button><a href="#!/reviews_submit">Submit a Review</a></button>
 
+    <div class="review-grid">
+        <figure class="review-card" ng-repeat="review in reviews">
+            <div class="stars" aria-label="{{review.stars}} out of 5 stars">
+                <i class="fa fa-star" ng-repeat="i in getNumber(review.stars) track by $index"></i>
+            </div>
+            <blockquote>{{review.review}}</blockquote>
+            <figcaption>
+                <strong>{{review.name}}</strong>
+                <span ng-show="review.location">{{review.location}}</span>
+            </figcaption>
+        </figure>
+    </div>
+
+    <div class="center">
+        <a class="btn" href="#!/reviews_submit"><i class="fa fa-pencil"></i> Submit a Review</a>
+    </div>
 </section>

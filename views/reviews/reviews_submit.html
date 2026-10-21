@@ -1,27 +1,36 @@
-<section class="auxpage">
-    <h1 class="auxpage_header">Submit a Review</h1>
+<section class="page page--narrow auxpage">
+    <nav class="breadcrumb"><a href="#!/reviews">Reviews</a> <i class="fa fa-angle-right"></i> Submit a Review</nav>
+    <h1 class="page-title">Submit a Review</h1>
 
-    <form method="POST" action="http://lylehadlockmusic.com/cgi-bin/monstermail" enctype="multipart/form-data"
+    <form class="form card" method="POST" action="http://lylehadlockmusic.com/cgi-bin/monstermail" enctype="multipart/form-data"
           onSubmit="return ReviewCheckRequiredFields()" name="AddReview">
         <input type="hidden" name="redirect" value="http://lylehadlockmusic.com/#!/reviews_success">
         <input type="hidden" name="subject" value="Lyle Hadlock Review Email"/>
         <input type="hidden" name="mailfrom" value="lyle@lylehadlockmusic.com"/>
-        <br>
-        Rating (Stars)
-        <input type="radio" value="1 Star" name="stars" tabindex="1">
-        <input type="radio" value="2 Stars" name="stars" tabindex="2">
-        <input type="radio" value="3 Stars" name="stars" tabindex="3">
-        <input type="radio" value="4 Stars" name="stars" tabindex="4">
-        <input type="radio" value="5 Stars" checked name="stars" tabindex="5">
 
-        <p>Name
-            <br><input type="text" name="from" size="20" tabindex="6">
-        <p>City, State
-            <br><input type="text" name="location" size="30" tabindex="7">
-        <p>Review
-            <br><textarea rows="10" name="review" cols="40" tabindex="8"></textarea>
-        <p>
-            <input type="submit" value="Submit Review" tabindex="9">&nbsp; </p>
+        <fieldset class="field">
+            <legend>Rating</legend>
+            <div class="star-input">
+                <input type="radio" id="stars5" value="5 Stars" checked name="stars" tabindex="1"><label for="stars5" title="5 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" id="stars4" value="4 Stars" name="stars" tabindex="2"><label for="stars4" title="4 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" id="stars3" value="3 Stars" name="stars" tabindex="3"><label for="stars3" title="3 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" id="stars2" value="2 Stars" name="stars" tabindex="4"><label for="stars2" title="2 stars"><i class="fa fa-star"></i></label>
+                <input type="radio" id="stars1" value="1 Star" name="stars" tabindex="5"><label for="stars1" title="1 star"><i class="fa fa-star"></i></label>
+            </div>
+        </fieldset>
+
+        <div class="field">
+            <label for="from">Name</label>
+            <input type="text" id="from" name="from" tabindex="6">
+        </div>
+        <div class="field">
+            <label for="location">City, State</label>
+            <input type="text" id="location" name="location" tabindex="7">
+        </div>
+        <div class="field">
+            <label for="review">Review</label>
+            <textarea rows="8" id="review" name="review" tabindex="8"></textarea>
+        </div>
+        <button class="btn" type="submit" tabindex="9">Submit Review</button>
     </form>
-
 </section>

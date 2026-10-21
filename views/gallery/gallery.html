@@ -1,10 +1,11 @@
-<section class="auxpage">
-    <h1 class="auxpage_header">Galleries</h1>
-    <div class="gallery" ng-repeat="gallery in galleries">
-        <a href="#!/gallery_show?id={{gallery.id}}">
-            <img height="75%" width="75%" src="{{gallery.thumbnail}}">
-            <br>
-            <div class="desc large bold">{{gallery.name}}</div>
+<section class="page auxpage">
+    <h1 class="page-title">Galleries</h1>
+    <p class="page-lead">Behind the scenes in the recording studio, and moments from Lyle's life.</p>
+
+    <div class="photo-grid">
+        <a class="photo-card" ng-repeat="gallery in galleries" href="#!/gallery_show?id={{gallery.id}}">
+            <img ng-src="{{gallery.thumbnail}}" alt="{{gallery.name}}" loading="lazy">
+            <span class="photo-card__caption photo-card__caption--title">{{gallery.name}}</span>
         </a>
     </div>
 </section>

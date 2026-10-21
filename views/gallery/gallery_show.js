@@ -9,9 +9,8 @@ angular.module('mainApp.gallery_show', ['ngRoute'])
         });
     }])
 
-    .controller('GalleryShowCtrl', ['$rootScope', '$scope', '$routeParams', '$sce', 'galleries',
-        function ($rootScope, $scope, $routeParams, $sce, galleries) {
-            $rootScope.main_header = false;
+    .controller('GalleryShowCtrl', ['$scope', '$routeParams', '$sce', 'galleries',
+        function ($scope, $routeParams, $sce, galleries) {
 
             // find the selected gallery in galleries
             galleries.forEach(function (gallery) {

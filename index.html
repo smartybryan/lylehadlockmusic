@@ -1,56 +1,54 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html lang="en" ng-app="mainApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html lang="en" ng-app="mainApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html lang="en" ng-app="mainApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en" ng-app="mainApp" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="mainApp">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LyleHadlockMusic.com</title>
+    <title>The Music of Lyle Hadlock</title>
     <meta name="description"
           content="LyleHadlockMusic.com features relaxing and inspirational arrangements of the world's most beautiful hymns. Lyle Hadlock is a master pianist and composer which is reflected in his arrangements.">
     <meta name="keywords"
           content="Lyle Hadlock official site music hymns hymn relaxing inspirational instrumental piano lds sabbath composer music musical therapy ward mothers day gift cd idea sacrament meeting">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <meta name="theme-color" content="#16203f">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/app.css">
-
-    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
+<body ng-controller="MainAppCtrl">
 
-<header>
-    <div ng-show="main_header" ng-include="'views/main_header.html'"></div>
-    <div ng-show="!main_header" ng-include="'views/aux_header.html'"></div>
+<header class="site-header">
+    <div class="site-header__inner">
+        <a class="brand" href="#!/main" ng-click="closeNav()">
+            <span class="brand__name">Lyle Hadlock</span>
+            <span class="brand__tag">Music</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation"
+                ng-click="toggleNav()" ng-attr-aria-expanded="{{navOpen}}">
+            <i class="fa" ng-class="navOpen ? 'fa-times' : 'fa-bars'"></i>
+        </button>
+
+        <nav class="site-nav" ng-class="{'is-open': navOpen}">
+            <a href="#!/main" ng-class="{active: isActive('/main')}" ng-click="closeNav()">Home</a>
+            <a href="#!/bio" ng-class="{active: isActive('/bio')}" ng-click="closeNav()">Bio</a>
+            <a href="#!/gallery" ng-class="{active: isActive('/gallery')}" ng-click="closeNav()">Gallery</a>
+            <a href="#!/reviews" ng-class="{active: isActive('/reviews')}" ng-click="closeNav()">Reviews</a>
+            <a href="#!/sheetmusic" ng-class="{active: isActive('/sheetmusic')}" ng-click="closeNav()">Sheet Music</a>
+            <a href="#!/videos" ng-class="{active: isActive('/videos')}" ng-click="closeNav()">Videos</a>
+            <a href="#!/links" ng-class="{active: isActive('/links')}" ng-click="closeNav()">Links</a>
+            <a class="site-nav__cta" href="#!/contactlyle" ng-class="{active: isActive('/contactlyle')}" ng-click="closeNav()">Contact</a>
+        </nav>
+    </div>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="#!/main">Home</a></li>
-        <li><a href="#!/bio">Bio</a></li>
-        <li><a href="#!/contactlyle">Contact Lyle</a></li>
-        <li><a href="#!/gallery">Gallery</a></li>
-        <li><a href="#!/reviews">Reviews</a></li>
-        <li><a href="#!/links">Links</a></li>
-        <li><a href="#!/sheetmusic">Sheet Music</a></li>
-        <li><a href="#!/videos">Videos</a></li>
-        <!-- <li><a href="#!/mothersday"><span class="red">Mother's Day</span></a></li> -->
-    </ul>
-</nav>
+<main class="site-main">
+    <div ng-view></div>
+</main>
 
-<div ng-view></div>
-
-<footer>
+<footer class="site-footer">
     <div ng-include="'views/footer.html'"></div>
 </footer>
 
@@ -70,26 +68,10 @@
 <script src="views/links/links.js"></script>
 <script src="views/sheetmusic/sheetmusic.js"></script>
 <script src="views/videos/videos.js"></script>
-<script src="views/mothersday/mothersday.js"></script>
-<script src="views/mothersday/mothersday_delivery.js"></script>
 <script src="views/sitefeedback/sitefeedback.js"></script>
 <script src="views/sitefeedback/sitefeedback_success.js"></script>
 
 <script type="text/javascript" language="JavaScript">
-    function MothersDayCheckRequiredFields() {
-        if (document.RequestInfo.bishop.value.length == 0 ||
-                document.RequestInfo.ward.value.length == 0 ||
-                document.RequestInfo.contact.value.length == 0 ||
-                document.RequestInfo.mailfrom.value.length == 0 ||
-                document.RequestInfo.phone.value.length == 0 ||
-                document.RequestInfo.how.value.length == 0) {
-            alert('Please complete all fields before clicking "Next Step"');
-            return false;
-        }
-        document.RequestInfo.from.value = document.RequestInfo.mailfrom.value;
-        return true;
-    }
-
     function SendMessageCheckRequiredFields() {
         if (document.SendMessage.mailfrom.value.length == 0 ||
                 document.SendMessage.message.value.length == 0) {
@@ -101,7 +83,7 @@
     }
 
     function ReviewCheckRequiredFields() {
-        if (document.AddReview.mailfrom.value.length == 0 ||
+        if (document.AddReview.from.value.length == 0 ||
                 document.AddReview.review.value.length == 0) {
             alert('Please fill-in at least Name and Review before submitting your review.');
             return false;
@@ -110,8 +92,6 @@
     }
 
 </script>
-
-
 
 </body>
 </html>

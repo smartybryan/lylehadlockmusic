@@ -9,9 +9,8 @@ angular.module('mainApp.cdinfo', ['ngRoute'])
         });
     }])
 
-    .controller('CdinfoCtrl', ['$rootScope', '$scope', '$routeParams', '$sce', 'cd_data',
-        function ($rootScope, $scope, $routeParams, $sce, cd_data) {
-            $rootScope.main_header = false;
+    .controller('CdinfoCtrl', ['$scope', '$routeParams', '$sce', 'cd_data',
+        function ($scope, $routeParams, $sce, cd_data) {
 
             // find the selected cd in cd_data
             cd_data.forEach(function (cd) {
@@ -26,7 +25,7 @@ angular.module('mainApp.cdinfo', ['ngRoute'])
 
             // audio controls
             var audio = null;
-            $scope.track_playing = 0;
+            $scope.trackPlaying = 0;
             $scope.play = function (url, track_number) {
                 $scope.stop();
                 audio = new Audio(url);

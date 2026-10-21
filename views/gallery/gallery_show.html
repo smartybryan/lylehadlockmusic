@@ -1,12 +1,13 @@
-<section class="auxpage">
-    <h1 class="auxpage_header">{{gallery.name}}</h1>
+<section class="page auxpage">
+    <nav class="breadcrumb"><a href="#!/gallery">Galleries</a> <i class="fa fa-angle-right"></i> {{gallery.name}}</nav>
+    <h1 class="page-title">{{gallery.name}}</h1>
 
-    <p ng-bind-html="trustHtml(gallery.description)"></p>
+    <p class="page-lead" ng-bind-html="trustHtml(gallery.description)"></p>
 
-    <div class="gallery" ng-repeat="photo in gallery.photos">
-        <a target="_blank" href="{{photo.url}}">
-            <img src="{{photo.url}}">
-            <div class="desc">{{photo.caption}}</div>
+    <div class="photo-grid">
+        <a class="photo-card" ng-repeat="photo in gallery.photos" target="_blank" ng-href="{{photo.url}}">
+            <img ng-src="{{photo.url}}" alt="{{photo.caption}}" loading="lazy">
+            <span class="photo-card__caption" ng-show="photo.caption">{{photo.caption}}</span>
         </a>
     </div>
 </section>

@@ -1,28 +1,27 @@
-<section class="auxpage">
-    <h1 class="auxpage_header">Send Site Feedback</h1>
+<section class="page page--narrow auxpage">
+    <h1 class="page-title">Send Site Feedback</h1>
+    <p class="page-lead">Spotted a problem, or want your site listed on our Links page? Let us know.</p>
 
-    <form action="http://lylehadlockmusic.com/cgi-bin/monstermail" enctype="multipart/form-data"
+    <form class="form card" action="http://lylehadlockmusic.com/cgi-bin/monstermail" enctype="multipart/form-data"
           name="SendMessage" onSubmit="return SendMessageCheckRequiredFields()" method="POST">
         <input type="hidden" name="redirect" value="http://lylehadlockmusic.com/#!/sitefeedback_success">
         <input type="hidden" name="subject" value="Site Feedback Email"/>
         <input type="hidden" name="from" value=""/>
 
-        <br>Your email address
-        <br>
-        <input type="text" name="mailfrom" size="20" tabindex="1">
-        <p>
-            Site Feedback
-            <br>
-            <textarea rows="10" name="message" cols="40" tabindex="2"></textarea>
-        </p>
-        <p>
-            <input type="submit" value="Send Message" tabindex="3">
-        </p>
+        <div class="field">
+            <label for="mailfrom">Your email address</label>
+            <input type="email" id="mailfrom" name="mailfrom" tabindex="1">
+        </div>
+        <div class="field">
+            <label for="message">Site feedback</label>
+            <textarea rows="8" id="message" name="message" tabindex="2"></textarea>
+        </div>
+        <button class="btn" type="submit" tabindex="3"><i class="fa fa-paper-plane"></i> Send Message</button>
     </form>
-    <br>
-    <hr>
-    <p class="large bold">Privacy Statement</p>
-    Your email address will not in any way be shared with anyone else. By providing your email address it
-    simply gives us the ability to answer any questions you have.
 
+    <div class="note">
+        <strong>Privacy Statement</strong>
+        <p>Your email address will not in any way be shared with anyone else. By providing your email address it
+            simply gives us the ability to answer any questions you have.</p>
+    </div>
 </section>

@@ -1,15 +1,14 @@
-<section class="auxpage">
-    <h1 class="auxpage_header">Videos</h1>
-    <br>
+<section class="page auxpage">
+    <h1 class="page-title">Videos</h1>
 
-    <div ng-repeat="video in videos">
-        <iframe width="560" height="315" ng-src="{{video.url | trusted}}"
-                frameborder="0" allow="encrypted-media"
-                allowfullscreen>
-        </iframe>
-        <br>
-        <p>{{video.description}}</p>
-        <br><br>
+    <div class="video-list">
+        <article class="video-card" ng-repeat="video in videos">
+            <div class="video-embed">
+                <iframe ng-src="{{video.url | trusted}}" title="Lyle Hadlock video {{$index + 1}}"
+                        frameborder="0" allow="encrypted-media" allowfullscreen loading="lazy">
+                </iframe>
+            </div>
+            <p>{{video.description}}</p>
+        </article>
     </div>
-
 </section>

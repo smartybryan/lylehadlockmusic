@@ -9,6 +9,5 @@ angular.module('mainApp.links', ['ngRoute'])
   });
 }])
 
-.controller('LinksCtrl', ['$rootScope', function($rootScope) {
-  $rootScope.main_header = false;
+.controller('LinksCtrl', [function() {
 }]);

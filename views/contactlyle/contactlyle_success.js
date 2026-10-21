@@ -9,6 +9,5 @@ angular.module('mainApp.contactlyle_success', ['ngRoute'])
   });
 }])
 
-.controller('ContactLyleSuccessCtrl', ['$rootScope', function($rootScope) {
-  $rootScope.main_header = false;
+.controller('ContactLyleSuccessCtrl', [function() {
 }]);

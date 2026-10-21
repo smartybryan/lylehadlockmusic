@@ -9,7 +9,6 @@ angular.module('mainApp.reviews_success', ['ngRoute'])
         });
     }])
 
-    .controller('ReviewsSuccessCtrl', ['$rootScope', '$scope', function ($rootScope, $scope) {
-        $rootScope.main_header = false;
+    .controller('ReviewsSuccessCtrl', ['$scope', function ($scope) {
 
     }]);

@@ -9,6 +9,5 @@ angular.module('mainApp.sitefeedback_success', ['ngRoute'])
   });
 }])
 
-.controller('SitefeedbackSuccessCtrl', ['$rootScope', function($rootScope) {
-  $rootScope.main_header = false;
+.controller('SitefeedbackSuccessCtrl', [function() {
 }]);

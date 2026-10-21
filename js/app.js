@@ -16,16 +16,31 @@ var mainApp = angular.module('mainApp', [
     'mainApp.links',
     'mainApp.sheetmusic',
     'mainApp.videos',
-    'mainApp.mothersday',
-    'mainApp.mothersday_delivery',
     'mainApp.sitefeedback',
     'mainApp.sitefeedback_success'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({redirectTo: '/main'});
-}]).controller('MainAppCtrl', function () {
+}]).controller('MainAppCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    $scope.navOpen = false;
+    $scope.toggleNav = function () {
+        $scope.navOpen = !$scope.navOpen;
+    };
+    $scope.closeNav = function () {
+        $scope.navOpen = false;
+    };
 
-});
+    // highlight the nav link for the current page, including its sub-pages (e.g. /gallery_show)
+    $scope.isActive = function (path) {
+        var current = $location.path();
+        return current === path || current.indexOf(path + '_') === 0;
+    };
+
+    $scope.$on('$routeChangeSuccess', function () {
+        $scope.navOpen = false;
+        $window.scrollTo(0, 0);
+    });
+}]);
 
 mainApp.factory("cd_data", function() {
     return [
