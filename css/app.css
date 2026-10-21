@@ -775,6 +775,129 @@ hr {
     color: var(--navy);
 }
 
+/* ---------- Photo viewer ---------- */
+
+body.viewer-open {
+    overflow: hidden;
+}
+
+.viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 72px;
+    background: rgba(10, 14, 28, .94);
+    animation: viewer-in .2s ease;
+}
+
+@keyframes viewer-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.viewer__figure {
+    margin: 0;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewer__image {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 170px);
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+}
+
+.viewer__caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    width: 100%;
+    margin-top: 14px;
+    color: rgba(255, 255, 255, .9);
+    font-size: 1rem;
+}
+
+.viewer__count {
+    flex-shrink: 0;
+    margin-left: auto;
+    color: rgba(255, 255, 255, .55);
+    font-size: .85rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.viewer__close,
+.viewer__nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s ease;
+}
+
+.viewer__close:hover,
+.viewer__nav:hover {
+    background: rgba(255, 255, 255, .22);
+}
+
+.viewer__close {
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+}
+
+.viewer__nav {
+    top: 50%;
+    width: 52px;
+    height: 52px;
+    margin-top: -26px;
+    font-size: 1.8rem;
+}
+
+.viewer__nav--prev {
+    left: 12px;
+}
+
+.viewer__nav--next {
+    right: 12px;
+}
+
+@media (max-width: 720px) {
+    .viewer {
+        padding: 64px 12px 96px;
+    }
+
+    .viewer__nav {
+        top: auto;
+        bottom: 20px;
+        margin-top: 0;
+    }
+
+    .viewer__nav--prev {
+        left: calc(50% - 64px);
+    }
+
+    .viewer__nav--next {
+        right: calc(50% - 64px);
+    }
+}
+
 /* ---------- Reviews ---------- */
 
 .review-grid {

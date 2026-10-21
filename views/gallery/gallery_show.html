@@ -5,9 +5,35 @@
     <p class="page-lead" ng-bind-html="trustHtml(gallery.description)"></p>
 
     <div class="photo-grid">
-        <a class="photo-card" ng-repeat="photo in gallery.photos" target="_blank" ng-href="{{photo.url}}">
+        <a class="photo-card" ng-repeat="photo in gallery.photos" ng-href="{{photo.url}}"
+           ng-click="$event.preventDefault(); openViewer($index)">
             <img ng-src="{{photo.url}}" alt="{{photo.caption}}" loading="lazy">
             <span class="photo-card__caption" ng-show="photo.caption">{{photo.caption}}</span>
         </a>
+    </div>
+
+    <div class="viewer" ng-if="viewerIndex !== null" role="dialog" aria-modal="true" aria-label="Photo viewer"
+         ng-click="closeViewer()" photo-swipe on-swipe-left="step(1)" on-swipe-right="step(-1)">
+        <button class="viewer__close" type="button" aria-label="Close" ng-click="closeViewer()">
+            <i class="fa fa-times"></i>
+        </button>
+
+        <button class="viewer__nav viewer__nav--prev" type="button" aria-label="Previous photo"
+                ng-click="$event.stopPropagation(); step(-1)" ng-show="gallery.photos.length > 1">
+            <i class="fa fa-angle-left"></i>
+        </button>
+
+        <figure class="viewer__figure" ng-click="$event.stopPropagation()">
+            <img class="viewer__image" ng-src="{{currentPhoto().url}}" alt="{{currentPhoto().caption}}">
+            <figcaption class="viewer__caption">
+                <span>{{currentPhoto().caption}}</span>
+                <span class="viewer__count">{{viewerIndex + 1}} / {{gallery.photos.length}}</span>
+            </figcaption>
+        </figure>
+
+        <button class="viewer__nav viewer__nav--next" type="button" aria-label="Next photo"
+                ng-click="$event.stopPropagation(); step(1)" ng-show="gallery.photos.length > 1">
+            <i class="fa fa-angle-right"></i>
+        </button>
     </div>
 </section>
